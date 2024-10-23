@@ -30,6 +30,21 @@ class Notices {
 		$installed_time = get_option( 'wc_cat_slider_installed' );
 		$current_time   = wp_date( 'U' );
 
+		// Halloween offer notice.
+		$halloween_time = date_i18n( strtotime( '2024-11-11 00:00:00' ) );
+		if ( $current_time < $halloween_time ) {
+			wp_enqueue_style( 'wc-category-slider-halloween' );
+			wc_category_slider()->notices->add(
+				array(
+					'message'     => __DIR__ . '/views/notices/halloween.php',
+					'dismissible' => false,
+					'notice_id'   => 'wc_cat_slider_promotion',
+					'style'       => 'border-left-color: #8500ff;',
+					'class'       => 'notice-halloween',
+				)
+			);
+		}
+
 		if ( ! defined( 'WC_CAT_SLIDER_PRO_VERSION' ) ) {
 			wc_category_slider()->notices->add(
 				array(

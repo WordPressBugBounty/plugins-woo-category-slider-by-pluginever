@@ -37,6 +37,8 @@ class Admin {
 
 		add_action( 'wp_ajax_wc_slider_get_categories', array( $this, 'wc_slider_get_categories_ajax_callback' ) );
 		add_action( 'admin_footer', array( $this, 'wc_category_slider_print_js_template' ) );
+		add_filter( 'admin_footer_text', array( $this, 'admin_footer_text' ), PHP_INT_MAX );
+		add_filter( 'update_footer', array( $this, 'update_footer' ), PHP_INT_MAX );
 	}
 
 	/**
@@ -237,7 +239,7 @@ class Admin {
 	 * @return void
 	 */
 	public function wc_slider_load_admin_assets( $hook ) {
-
+		wc_category_slider()->scripts->register_style( 'wc-category-slider-halloween', 'css/halloween.css' );
 		// Enqueue the bytekit styles.
 		wp_enqueue_style( 'bytekit-components' );
 
@@ -650,5 +652,45 @@ class Admin {
 			$offer_key = $this->uniq_key . '_initial_upsell_promotion';
 			update_option( $offer_key, 'hide' );
 		}
+	}
+
+	/**
+	 * Admin footer text.
+	 *
+	 * @param string $footer_text Footer text.
+	 *
+	 * @since 4.2.6
+	 * @return string
+	 */
+	public function admin_footer_text( $footer_text ) {
+		$screen_ids = array( 'wc_category_slider', 'edit-wc_category_slider' );
+		if ( wc_category_slider()->get_review_url() && in_array( get_current_screen()->id, $screen_ids, true ) ) {
+			$footer_text = sprintf(
+			/* translators: 1: Plugin name 2: WordPress */
+				__( 'Thank you for using %1$s. If you like it, please leave us a %2$s rating. A huge thank you from PluginEver in advance!', 'woo-category-slider-by-pluginever' ),
+				'<strong>' . esc_html( wc_category_slider()->get_name() ) . '</strong>',
+				'<a href="' . esc_url( wc_category_slider()->get_review_url() ) . '" target="_blank" class="wc-category-slider-rating-link" data-rated="' . esc_attr__( 'Thanks :)', 'woo-category-slider-by-pluginever' ) . '">&#9733;&#9733;&#9733;&#9733;&#9733;</a>'
+			);
+		}
+
+		return $footer_text;
+	}
+
+	/**
+	 * Update footer.
+	 *
+	 * @param string $footer_text Footer text.
+	 *
+	 * @since 1.0.0
+	 * @return string
+	 */
+	public function update_footer( $footer_text ) {
+		$screen_ids = array( 'wc_category_slider', 'edit-wc_category_slider' );
+		if ( in_array( get_current_screen()->id, $screen_ids, true ) ) {
+			/* translators: 1: Plugin version */
+			$footer_text = sprintf( esc_html__( 'Version %s', 'woo-category-slider-by-pluginever' ), wc_category_slider()->get_version() );
+		}
+
+		return $footer_text;
 	}
 }
