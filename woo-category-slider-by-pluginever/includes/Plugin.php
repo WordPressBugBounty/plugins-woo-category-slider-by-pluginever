@@ -11,7 +11,7 @@ defined( 'ABSPATH' ) || exit;
  *
  * @package WooCommerceCategorySlider
  */
-final class Plugin extends ByteKit\Plugin {
+final class Plugin extends \WooCommerceCategorySlider\ByteKit\Plugin {
 
 	/**
 	 * Plugin constructor.

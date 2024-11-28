@@ -13,13 +13,6 @@ defined( 'ABSPATH' ) || exit();
  */
 class Admin {
 	/**
-	 * Meta Unique Key prefix.
-	 *
-	 * @var string
-	 */
-	protected $uniq_key;
-
-	/**
 	 * Admin constructor.
 	 *
 	 * @since 1.0.0
@@ -30,10 +23,6 @@ class Admin {
 		add_action( 'save_post_wc_category_slider', array( $this, 'wc_category_slider_update_settings' ) );
 		add_action( 'add_meta_boxes', array( $this, 'wc_slider_register_meta_boxes' ), 10 );
 		add_action( 'add_meta_boxes', array( $this, 'wc_slider_remove_meta_boxes' ), 10 );
-
-		$this->uniq_key = sanitize_key( 'wc-category-slider-v4_0_9' );
-		add_action( 'admin_notices', array( $this, 'promotional_offer' ) );
-		add_action( 'wp_ajax_' . $this->uniq_key . '-dismiss-promotional-offer-notice', array( $this, 'dismiss_promotional_offer' ) );
 
 		add_action( 'wp_ajax_wc_slider_get_categories', array( $this, 'wc_slider_get_categories_ajax_callback' ) );
 		add_action( 'admin_footer', array( $this, 'wc_category_slider_print_js_template' ) );
@@ -239,9 +228,11 @@ class Admin {
 	 * @return void
 	 */
 	public function wc_slider_load_admin_assets( $hook ) {
-		wc_category_slider()->scripts->register_style( 'wc-category-slider-halloween', 'css/halloween.css' );
+//		wc_category_slider()->scripts->register_style( 'wc-category-slider-halloween', 'css/halloween.css' );
+		wc_category_slider()->scripts->register_style( 'wc-cat-slider-black-friday', 'css/black-friday.css' );
 		// Enqueue the bytekit styles.
 		wp_enqueue_style( 'bytekit-components' );
+		wp_enqueue_style( 'bytekit-layout' );
 
 		if ( ! in_array( $hook, array( 'post-new.php', 'post.php' ), true ) ) {
 			return;
@@ -577,81 +568,6 @@ class Admin {
 	public function wc_slider_remove_meta_boxes() {
 		$post_type = 'wc_category_slider';
 		remove_meta_box( 'submitdiv', $post_type, 'side' );
-	}
-
-	/**
-	 * Promotional Offer.
-	 *
-	 * @since 1.0.0
-	 * @return void
-	 */
-	public function promotional_offer() {
-		// Show only to Admins.
-		if ( ! current_user_can( 'manage_options' ) ) {
-			return;
-		}
-		// Check if it has already been dismissed.
-		$hide_notice = get_option( '' . esc_attr( $this->uniq_key ) . '_initial_upsell_promotion', 'no' );
-
-		if ( 'hide' === $hide_notice || is_plugin_active( 'wc-category-slider-pro/wc-category-slider-pro.php' ) ) {
-			return;
-		}
-
-		?>
-		<div class="notice notice-info is-dismissible" id="<?php echo esc_attr( $this->uniq_key ); ?>-promotional-offer-notice">
-			<p>Thank you for installing <strong><a href="https://www.pluginever.com/plugins/woocommerce-category-slider-pro" target="_blank">WooCommerce Category Slider</a></strong>. <strong>WooCommerce Category slider</strong> is now powering <strong>2000+</strong> stores. Use the coupon code <strong>WCSLIDER4TOPRO</strong> for 20% discount on PRO. <a href="https://www.pluginever.com/plugins/woocommerce-category-slider-pro/?utm_source=plugin_activation_promotion&utm_medium=link&utm_campaign=wc-category-slider&utm_content=Upgrade" target="_blank" style="text-decoration: none;"><span
-						class="dashicons dashicons-smiley" style="margin-left: 10px;"></span> Get the Offer</a></p>
-			<span class="dashicons dashicons-megaphone"></span>
-		</div><!-- #<?php echo esc_attr( $this->uniq_key ); ?>-promotional-offer-notice -->
-
-		<style>
-
-			#<?php echo esc_attr( $this->uniq_key ); ?>-promotional-offer-notice p {
-				color: #000;
-				font-size: 14px;
-				margin-bottom: 10px;
-				-webkit-text-shadow: 0.1px 0.1px 0px rgba(250, 250, 250, 0.24);
-				-moz-text-shadow: 0.1px 0.1px 0px rgba(250, 250, 250, 0.24);
-				-o-text-shadow: 0.1px 0.1px 0px rgba(250, 250, 250, 0.24);
-				text-shadow: 0.1px 0.1px 0px rgba(250, 250, 250, 0.24);
-				padding-left: 30px;
-			}
-
-
-			#<?php echo esc_attr( $this->uniq_key ); ?>-promotional-offer-notice span.dashicons-megaphone {
-				position: absolute;
-				top: 8px;
-				left: 0;
-				color: #0073aa;
-				font-size: 36px;
-				transform: rotate(-21deg);
-			}
-		</style>
-
-		<script type='text/javascript'>
-			jQuery('body').on('click', '#<?php echo esc_attr( $this->uniq_key ); ?>-promotional-offer-notice .notice-dismiss', function (e) {
-				e.preventDefault();
-
-				wp.ajax.post('<?php echo esc_attr( $this->uniq_key ); ?>-dismiss-promotional-offer-notice', {
-					dismissed: true
-				});
-			});
-		</script>
-		<?php
-	}
-
-
-	/**
-	 * Dismiss promotion notice
-	 *
-	 * @return void
-	 * @since  2.5
-	 */
-	public function dismiss_promotional_offer() {
-		if ( ! empty( $_POST['dismissed'] ) ) {
-			$offer_key = $this->uniq_key . '_initial_upsell_promotion';
-			update_option( $offer_key, 'hide' );
-		}
 	}
 
 	/**

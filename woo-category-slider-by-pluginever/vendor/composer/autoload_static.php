@@ -4,12 +4,16 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInita00d6af302ea5912316a547b9d4b9ecd
+class ComposerStaticInit6e8cef399a06b8b5c9605dd25c27f5ae
 {
     public static $prefixLengthsPsr4 = array (
         'W' => 
         array (
             'WooCommerceCategorySlider\\' => 26,
+        ),
+        'B' => 
+        array (
+            'ByteKit\\' => 8,
         ),
     );
 
@@ -17,22 +21,25 @@ class ComposerStaticInita00d6af302ea5912316a547b9d4b9ecd
         'WooCommerceCategorySlider\\' => 
         array (
             0 => __DIR__ . '/../..' . '/includes',
-            1 => __DIR__ . '/../..' . '/lib',
+        ),
+        'ByteKit\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/byteever/bytekit-plugin/src',
         ),
     );
 
     public static $classMap = array (
+        'ByteKit\\Admin\\Flash' => __DIR__ . '/..' . '/byteever/bytekit-plugin/src/Admin/Flash.php',
+        'ByteKit\\Admin\\Notices' => __DIR__ . '/..' . '/byteever/bytekit-plugin/src/Admin/Notices.php',
+        'ByteKit\\Interfaces\\Pluginable' => __DIR__ . '/..' . '/byteever/bytekit-plugin/src/Interfaces/Pluginable.php',
+        'ByteKit\\Interfaces\\Scriptable' => __DIR__ . '/..' . '/byteever/bytekit-plugin/src/Interfaces/Scriptable.php',
+        'ByteKit\\Plugin' => __DIR__ . '/..' . '/byteever/bytekit-plugin/src/Plugin.php',
+        'ByteKit\\Scripts' => __DIR__ . '/..' . '/byteever/bytekit-plugin/src/Scripts.php',
+        'ByteKit\\Services' => __DIR__ . '/..' . '/byteever/bytekit-plugin/src/Services.php',
+        'ByteKit\\Traits\\HasPlugin' => __DIR__ . '/..' . '/byteever/bytekit-plugin/src/Traits/HasPlugin.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'WooCommerceCategorySlider\\Admin\\Admin' => __DIR__ . '/../..' . '/includes/Admin/Admin.php',
         'WooCommerceCategorySlider\\Admin\\Notices' => __DIR__ . '/../..' . '/includes/Admin/Notices.php',
-        'WooCommerceCategorySlider\\ByteKit\\Admin\\Flash' => __DIR__ . '/../..' . '/lib/ByteKit/Admin/Flash.php',
-        'WooCommerceCategorySlider\\ByteKit\\Admin\\Notices' => __DIR__ . '/../..' . '/lib/ByteKit/Admin/Notices.php',
-        'WooCommerceCategorySlider\\ByteKit\\Interfaces\\Pluginable' => __DIR__ . '/../..' . '/lib/ByteKit/Interfaces/Pluginable.php',
-        'WooCommerceCategorySlider\\ByteKit\\Interfaces\\Scriptable' => __DIR__ . '/../..' . '/lib/ByteKit/Interfaces/Scriptable.php',
-        'WooCommerceCategorySlider\\ByteKit\\Plugin' => __DIR__ . '/../..' . '/lib/ByteKit/Plugin.php',
-        'WooCommerceCategorySlider\\ByteKit\\Scripts' => __DIR__ . '/../..' . '/lib/ByteKit/Scripts.php',
-        'WooCommerceCategorySlider\\ByteKit\\Services' => __DIR__ . '/../..' . '/lib/ByteKit/Services.php',
-        'WooCommerceCategorySlider\\ByteKit\\Traits\\HasPlugin' => __DIR__ . '/../..' . '/lib/ByteKit/Traits/HasPlugin.php',
         'WooCommerceCategorySlider\\Controllers\\SliderElements' => __DIR__ . '/../..' . '/includes/Controllers/SliderElements.php',
         'WooCommerceCategorySlider\\Plugin' => __DIR__ . '/../..' . '/includes/Plugin.php',
         'WooCommerceCategorySlider\\PostTypes' => __DIR__ . '/../..' . '/includes/PostTypes.php',
@@ -43,9 +50,9 @@ class ComposerStaticInita00d6af302ea5912316a547b9d4b9ecd
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInita00d6af302ea5912316a547b9d4b9ecd::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInita00d6af302ea5912316a547b9d4b9ecd::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInita00d6af302ea5912316a547b9d4b9ecd::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit6e8cef399a06b8b5c9605dd25c27f5ae::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit6e8cef399a06b8b5c9605dd25c27f5ae::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit6e8cef399a06b8b5c9605dd25c27f5ae::$classMap;
 
         }, null, ClassLoader::class);
     }
