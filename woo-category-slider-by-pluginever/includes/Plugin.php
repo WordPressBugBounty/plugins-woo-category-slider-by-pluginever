@@ -188,7 +188,7 @@ final class Plugin extends \WooCommerceCategorySlider\ByteKit\Plugin {
 				'wp-api-fetch',
 				'wc-category-slider-editor',
 			),
-			filemtime( WC_CAT_SLIDER_PATH . 'assets/js/wc-category-slider-block.js' ),
+			filemtime( WC_CAT_SLIDER_PATH . 'build/js/wc-category-slider-block.js' ),
 		);
 
 		$inline_scripts = 'var isWCCategorySliderPro=' . ( is_plugin_active( 'wc-category-slider-pro/wc-category-slider-pro.php' ) ? 'true' : 'false' ) . ';';
