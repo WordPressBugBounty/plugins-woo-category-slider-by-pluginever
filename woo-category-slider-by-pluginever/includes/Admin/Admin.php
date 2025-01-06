@@ -50,6 +50,7 @@ class Admin {
 				<div class="ever-slide">
 					<div class="ever-slide-header">
 						<div class="ever-slide-headerleft">{{data.name}}</div>
+						<span class="dashicons dashicons-menu move-item"></span>
 					</div>
 					<div class="ever-slide-main">
 						<div class="ever-slide-thumbnail">
@@ -98,7 +99,11 @@ class Admin {
 											$length       = 0 === $a ? 10 : - 1;
 											$sliced_icons = array_slice( $icons, $offset, $length );
 
-											$label    = sprintf( __( '%s Icons', 'woo-category-slider-by-pluginever' ), 0 === $a ? 'Free' : 'Pro' );
+											$label = sprintf(
+												/* Translators: 1.Version Name. */
+												__( '%s Icons', 'woo-category-slider-by-pluginever' ),
+												0 === $a ? 'Free' : 'Pro'
+											);
 											$disabled = 0 === $a ? '' : 'disabled';
 
 											echo "<optgroup label='{$label}'>";
@@ -129,6 +134,7 @@ class Admin {
 
 							<!--url-->
 							<div class="ever-slide-url">
+								<input type="hidden" name="categories[{{data.term_id}}][position]" value="{{data.position}}" class="category-position">
 								<input name="categories[{{data.term_id}}][url]" class="ever-slide-url-inputbox regular-text" placeholder="{{data.url}}" value="{{data.url}}" type="url" <?php echo esc_attr( $disabled ); ?>>
 							</div>
 
@@ -177,6 +183,7 @@ class Admin {
 	 * @return void
 	 */
 	public function wc_slider_get_categories_ajax_callback() {
+		check_ajax_referer( 'wc_category_slider_ajax', 'nonce' );
 		$selection_type      = empty( $_REQUEST['selection_type'] ) ? 'all' : sanitize_key( $_REQUEST['selection_type'] );
 		$selected_categories = empty( $_REQUEST['selected_categories'] ) ? array() : wp_parse_id_list( $_REQUEST['selected_categories'] );
 		$include_child       = empty( $_REQUEST['include_child'] ) || 'on' !== $_REQUEST['include_child'] ? false : true;
@@ -200,10 +207,13 @@ class Admin {
 				'exclude'    => array(),
 				'child_of'   => 0,
 				'post_id'    => $slider_id,
-			)
+			),
+			$slider_id,
+			$orderby,
 		);
 
 		$categories = apply_filters( 'wc_category_slider_categories', $categories, $slider_id );
+
 		foreach ( $categories as $key => $category ) {
 			$image        = WC_CAT_SLIDER_ASSETS_URL . '/images/no-image-placeholder.jpg';
 			$thumbnail_id = $category['image_id'];
@@ -228,7 +238,7 @@ class Admin {
 	 * @return void
 	 */
 	public function wc_slider_load_admin_assets( $hook ) {
-//		wc_category_slider()->scripts->register_style( 'wc-category-slider-halloween', 'css/halloween.css' );
+		/** wc_category_slider()->scripts->register_style( 'wc-category-slider-halloween', 'css/halloween.css' ); */
 		wc_category_slider()->scripts->register_style( 'wc-cat-slider-black-friday', 'css/black-friday.css' );
 		// Enqueue the bytekit styles.
 		wp_enqueue_style( 'bytekit-components' );
@@ -273,7 +283,9 @@ class Admin {
 			array(
 				'ajaxurl'    => admin_url( 'admin-ajax.php' ),
 				'nonce'      => 'wc-category-slider',
+				'security'   => wp_create_nonce( 'wc_category_slider_ajax' ),
 				'codeEditor' => wp_enqueue_code_editor( array( 'type' => 'text/css' ) ),
+				'i18n'       => array(),
 			)
 		);
 		wp_enqueue_style( 'wc-category-slider' );
@@ -313,12 +325,12 @@ class Admin {
 			return $post_id;
 		}
 
-		// save post meta
+		// save post meta.
 		$posted = empty( $_POST ) ? array() : $_POST;
 
 		$categories = array();
-
 		if ( ! empty( $posted['categories'] ) ) {
+			uasort( $posted['categories'], array( self::class, 'slider_sorting_to_position' ) );
 			foreach ( $posted['categories'] as $term_id => $meta ) {
 				$categories[ $term_id ] = apply_filters(
 					'wc_category_slider_custom_category_attributes',
@@ -356,6 +368,22 @@ class Admin {
 		update_post_meta( $post_id, 'rtl', empty( $posted['rtl'] ) ? 'off' : 'on' );
 
 		do_action( 'wc_category_slider_settings_update', $post_id, $posted );
+	}
+
+	/**
+	 * sorting slider array for default tabs.
+	 *
+	 * @param int $a Array values.
+	 * @param int $b Array values.
+	 *
+	 * @since  1.0.0
+	 * @return int
+	 */
+	public static function slider_sorting_to_position( $a, $b ) {
+		if ( $a['position'] === $b['position'] ) {
+			return 0;
+		}
+		return $a['position'] < $b['position'] ? -1 : 1;
 	}
 
 	/**
@@ -452,6 +480,7 @@ class Admin {
 						'description' => esc_html__( 'Term Description', 'woo-category-slider-by-pluginever' ),
 						'term_group'  => esc_html__( 'Term Group', 'woo-category-slider-by-pluginever' ),
 						'count'       => esc_html__( 'Count', 'woo-category-slider-by-pluginever' ),
+						'custom'      => esc_html__( 'Custom', 'woo-category-slider-by-pluginever' ),
 						'none'        => esc_html__( 'None', 'woo-category-slider-by-pluginever' ),
 					),
 					'disabled'         => true,

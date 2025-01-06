@@ -5,12 +5,12 @@
 $strauss_src = dirname(__FILE__);
 
 return array(
-   'WooCommerceCategorySlider\ByteKit\Interfaces\Pluginable' => $strauss_src . '/byteever/bytekit-plugin/src/Interfaces/Pluginable.php',
-   'WooCommerceCategorySlider\ByteKit\Interfaces\Scriptable' => $strauss_src . '/byteever/bytekit-plugin/src/Interfaces/Scriptable.php',
-   'WooCommerceCategorySlider\ByteKit\Plugin' => $strauss_src . '/byteever/bytekit-plugin/src/Plugin.php',
-   'WooCommerceCategorySlider\ByteKit\Traits\HasPlugin' => $strauss_src . '/byteever/bytekit-plugin/src/Traits/HasPlugin.php',
-   'WooCommerceCategorySlider\ByteKit\Services' => $strauss_src . '/byteever/bytekit-plugin/src/Services.php',
    'WooCommerceCategorySlider\ByteKit\Admin\Notices' => $strauss_src . '/byteever/bytekit-plugin/src/Admin/Notices.php',
    'WooCommerceCategorySlider\ByteKit\Admin\Flash' => $strauss_src . '/byteever/bytekit-plugin/src/Admin/Flash.php',
    'WooCommerceCategorySlider\ByteKit\Scripts' => $strauss_src . '/byteever/bytekit-plugin/src/Scripts.php',
+   'WooCommerceCategorySlider\ByteKit\Plugin' => $strauss_src . '/byteever/bytekit-plugin/src/Plugin.php',
+   'WooCommerceCategorySlider\ByteKit\Services' => $strauss_src . '/byteever/bytekit-plugin/src/Services.php',
+   'WooCommerceCategorySlider\ByteKit\Interfaces\Pluginable' => $strauss_src . '/byteever/bytekit-plugin/src/Interfaces/Pluginable.php',
+   'WooCommerceCategorySlider\ByteKit\Interfaces\Scriptable' => $strauss_src . '/byteever/bytekit-plugin/src/Interfaces/Scriptable.php',
+   'WooCommerceCategorySlider\ByteKit\Traits\HasPlugin' => $strauss_src . '/byteever/bytekit-plugin/src/Traits/HasPlugin.php',
 );

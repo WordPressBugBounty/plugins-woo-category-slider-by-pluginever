@@ -1,14 +1,14 @@
-# Copyright (C) 2024 PluginEver
+# Copyright (C) 2025 PluginEver
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Product Category Slider for WooCommerce 4.3.1\n"
+"Project-Id-Version: Product Category Slider for WooCommerce 4.3.2\n"
 "Report-Msgid-Bugs-To: https://pluginever.com/support/\n"
-"POT-Creation-Date: 2024-12-01 08:28:56+00:00\n"
+"POT-Creation-Date: 2025-01-06 05:23:59+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"PO-Revision-Date: 2024-MO-DA HO:MI+ZONE\n"
+"PO-Revision-Date: 2025-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: en\n"
@@ -24,135 +24,140 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
 
-#: includes/Admin/Admin.php:65
+#: includes/Admin/Admin.php:66
 msgid "Change Image"
 msgstr ""
 
-#: includes/Admin/Admin.php:66
+#: includes/Admin/Admin.php:67
 msgid "Delete Image"
 msgstr ""
 
-#: includes/Admin/Admin.php:86
+#: includes/Admin/Admin.php:87
 msgid "No Icon"
 msgstr ""
 
-#: includes/Admin/Admin.php:101
+#: includes/Admin/Admin.php:104
+#. Translators: 1.Version Name.
 msgid "%s Icons"
 msgstr ""
 
-#: includes/Admin/Admin.php:373
+#: includes/Admin/Admin.php:401
 msgid "Selection Type"
 msgstr ""
 
-#: includes/Admin/Admin.php:385
+#: includes/Admin/Admin.php:413
 msgid "Select all categories or any custom categories"
 msgstr ""
 
-#: includes/Admin/Admin.php:391
+#: includes/Admin/Admin.php:419
 msgid "Select Categories"
 msgstr ""
 
-#: includes/Admin/Admin.php:411
+#: includes/Admin/Admin.php:439
 msgid "Limit Items"
 msgstr ""
 
-#: includes/Admin/Admin.php:415
+#: includes/Admin/Admin.php:443
 msgid "Limit the number of category appear on the slider"
 msgstr ""
 
-#: includes/Admin/Admin.php:421
+#: includes/Admin/Admin.php:449
 msgid "Include Children"
 msgstr ""
 
-#: includes/Admin/Admin.php:425
+#: includes/Admin/Admin.php:453
 msgid "Will include subcategories of the selected categories"
 msgstr ""
 
-#: includes/Admin/Admin.php:434
+#: includes/Admin/Admin.php:462
 msgid "Empty Categories"
 msgstr ""
 
-#: includes/Admin/Admin.php:435
+#: includes/Admin/Admin.php:463
 msgid "Show/hide Category without products"
 msgstr ""
 
-#: includes/Admin/Admin.php:443
+#: includes/Admin/Admin.php:471
 msgid "Order By"
 msgstr ""
 
-#: includes/Admin/Admin.php:450
+#: includes/Admin/Admin.php:478
 msgid "Term ID"
 msgstr ""
 
-#: includes/Admin/Admin.php:451
+#: includes/Admin/Admin.php:479
 msgid "Term Name"
 msgstr ""
 
-#: includes/Admin/Admin.php:452
+#: includes/Admin/Admin.php:480
 msgid "Term Description"
 msgstr ""
 
-#: includes/Admin/Admin.php:453
+#: includes/Admin/Admin.php:481
 msgid "Term Group"
 msgstr ""
 
-#: includes/Admin/Admin.php:454
+#: includes/Admin/Admin.php:482
 msgid "Count"
 msgstr ""
 
-#: includes/Admin/Admin.php:455 includes/functions.php:737
+#: includes/Admin/Admin.php:483
+msgid "Custom"
+msgstr ""
+
+#: includes/Admin/Admin.php:484 includes/functions.php:757
 msgid "None"
 msgstr ""
 
-#: includes/Admin/Admin.php:459 includes/Admin/Admin.php:482
+#: includes/Admin/Admin.php:488 includes/Admin/Admin.php:511
 msgid "Order category slider according to the selection type"
 msgstr ""
 
-#: includes/Admin/Admin.php:470
+#: includes/Admin/Admin.php:499
 msgid "Order"
 msgstr ""
 
-#: includes/Admin/Admin.php:498
+#: includes/Admin/Admin.php:527
 msgid "Publish"
 msgstr ""
 
-#: includes/Admin/Admin.php:499
+#: includes/Admin/Admin.php:528
 msgid "Create Slider"
 msgstr ""
 
-#: includes/Admin/Admin.php:505
+#: includes/Admin/Admin.php:534
 msgid "Update Slider"
 msgstr ""
 
-#: includes/Admin/Admin.php:529
+#: includes/Admin/Admin.php:558
 msgid "Use the shortocode to render the slider anywhere in the page or post."
 msgstr ""
 
-#: includes/Admin/Admin.php:557
+#: includes/Admin/Admin.php:586
 #: vendor-prefixed/byteever/bytekit-plugin/src/Traits/HasPlugin.php:255
 msgid "Settings"
 msgstr ""
 
-#: includes/Admin/Admin.php:558
+#: includes/Admin/Admin.php:587
 msgid "Category Settings"
 msgstr ""
 
-#: includes/Admin/Admin.php:559 includes/PostTypes.php:93
+#: includes/Admin/Admin.php:588 includes/PostTypes.php:93
 msgid "Shortcode"
 msgstr ""
 
-#: includes/Admin/Admin.php:586
+#: includes/Admin/Admin.php:615
 #. translators: 1: Plugin name 2: WordPress
 msgid ""
 "Thank you for using %1$s. If you like it, please leave us a %2$s rating. A "
 "huge thank you from PluginEver in advance!"
 msgstr ""
 
-#: includes/Admin/Admin.php:588
+#: includes/Admin/Admin.php:617
 msgid "Thanks :)"
 msgstr ""
 
-#: includes/Admin/Admin.php:607
+#: includes/Admin/Admin.php:636
 #. translators: 1: Plugin version
 msgid "Version %s"
 msgstr ""
@@ -713,27 +718,27 @@ msgstr ""
 msgid "Category slider draft."
 msgstr ""
 
-#: includes/functions.php:769
+#: includes/functions.php:789
 msgid "Default"
 msgstr ""
 
-#: includes/functions.php:792
+#: includes/functions.php:812
 msgid "Access <strong>PRO</strong> features by upgrading to PRO "
 msgstr ""
 
-#: includes/functions.php:792
+#: includes/functions.php:812
 msgid "Get The PRO Version."
 msgstr ""
 
-#: includes/functions.php:794
+#: includes/functions.php:814
 msgid "Pro Features"
 msgstr ""
 
-#: includes/functions.php:810 includes/functions.php:845
+#: includes/functions.php:830 includes/functions.php:865
 msgid "You do not have access to this resource."
 msgstr ""
 
-#: includes/functions.php:856
+#: includes/functions.php:876
 msgid "Given slider ID is not valid."
 msgstr ""
 

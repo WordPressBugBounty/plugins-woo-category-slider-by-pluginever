@@ -18,12 +18,14 @@ function wc_category_slider() {
 /**
  * Return all WC categories
  *
- * @param array $args Query arguments.
+ * @param array  $args Query arguments.
+ * @param int    $slider_id Slider ID.
+ * @param string $order_by Slider Order By.
  *
  * @since 3.0.0
  * @return array|int|\WP_Error
  */
-function wc_category_slider_get_categories( $args = array() ) {
+function wc_category_slider_get_categories( $args = array(), $slider_id = null, $order_by = '' ) {
 	$default = array(
 		'number'     => '20',
 		'orderby'    => 'name',
@@ -38,7 +40,8 @@ function wc_category_slider_get_categories( $args = array() ) {
 	$args['taxonomy'] = 'product_cat';
 	$categories       = (array) get_terms( $args );
 
-	$results = array();
+	$results  = array();
+	$position = 0;
 	foreach ( $categories as $category ) {
 		$thumbnail_id = ! empty( $meta['image_id'] ) ? $meta['image_id'] : get_term_meta( $category->term_id, 'thumbnail_id', true );
 		$results[]    = array(
@@ -49,7 +52,24 @@ function wc_category_slider_get_categories( $args = array() ) {
 			'count'       => $category->count,
 			'image_id'    => $thumbnail_id,
 			'icon'        => '',
+			'position'    => $position,
 		);
+		++$position;
+	}
+
+	if ( is_plugin_active( 'wc-category-slider-pro/wc-category-slider-pro.php' ) ) {
+		if ( ! empty( $slider_id ) && 'custom' === $order_by ) {
+			$saved_categories = get_post_meta( $slider_id, 'categories', true );
+			// Sorting logic.
+			usort(
+				$results,
+				function ( $a, $b ) use ( $saved_categories ) {
+					$pos_a = isset( $saved_categories[ $a['term_id'] ]['position'] ) ? $saved_categories[ $a['term_id'] ]['position'] : PHP_INT_MAX;
+					$pos_b = isset( $saved_categories[ $b['term_id'] ]['position'] ) ? $saved_categories[ $b['term_id'] ]['position'] : PHP_INT_MAX;
+					return $pos_a <=> $pos_b;
+				}
+			);
+		}
 	}
 
 	return $results;

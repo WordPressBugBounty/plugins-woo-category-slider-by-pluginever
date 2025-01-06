@@ -146,7 +146,9 @@ class Shortcodes {
 					'childless'  => false,
 				),
 				$post_id
-			)
+			),
+			$post_id,
+			$orderby
 		);
 
 		$terms = apply_filters( 'wc_category_slider_categories', $terms, $post_id );
