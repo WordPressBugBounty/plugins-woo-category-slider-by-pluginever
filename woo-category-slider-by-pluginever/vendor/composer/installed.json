@@ -2,17 +2,17 @@
     "packages": [
         {
             "name": "byteever/bytekit-plugin",
-            "version": "v1.0.1",
-            "version_normalized": "1.0.1.0",
+            "version": "v1.0.2",
+            "version_normalized": "1.0.2.0",
             "source": {
                 "type": "git",
                 "url": "git@github.com:byteever/bytekit-plugin.git",
-                "reference": "38f7aa0311e49a33d8f62e54b9fc118eb1ad32b5"
+                "reference": "794ec9834ecac6cead6b1064a605ff930864950b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/byteever/bytekit-plugin/zipball/38f7aa0311e49a33d8f62e54b9fc118eb1ad32b5",
-                "reference": "38f7aa0311e49a33d8f62e54b9fc118eb1ad32b5",
+                "url": "https://api.github.com/repos/byteever/bytekit-plugin/zipball/794ec9834ecac6cead6b1064a605ff930864950b",
+                "reference": "794ec9834ecac6cead6b1064a605ff930864950b",
                 "shasum": ""
             },
             "require": {
@@ -30,7 +30,7 @@
                 "codeception/util-universalframework": "^1.0",
                 "lucatume/wp-browser": "<3.5"
             },
-            "time": "2024-11-26T04:25:16+00:00",
+            "time": "2025-02-27T09:59:41+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -84,7 +84,7 @@
             ],
             "description": "A set of related classes to kick start WordPress plugin development.",
             "support": {
-                "source": "https://github.com/byteever/bytekit-plugin/tree/v1.0.1",
+                "source": "https://github.com/byteever/bytekit-plugin/tree/v1.0.2",
                 "issues": "https://github.com/byteever/bytekit-plugin/issues"
             },
             "install-path": "../byteever/bytekit-plugin"
