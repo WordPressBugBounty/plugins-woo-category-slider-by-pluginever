@@ -77,7 +77,8 @@ function wc_category_slider_get_categories( $args = array(), $slider_id = null, 
 
 
 /**
- * Sanitizes a string key for Meta box Settings Keys are used as internal identifiers. Alphanumeric characters, dashes, underscores, stops, colons and slashes are allowed
+ * Sanitizes a string key for Meta box Settings Keys are used as internal identifiers.
+ * Alphanumeric characters, dashes, underscores, stops, colons and slashes are allowed
  *
  * @param string $key Post key.
  *
@@ -752,13 +753,14 @@ function wc_slider_get_icon_list() {
  * @return array
  */
 function wc_slider_get_font_list() {
-	$fonts     = file_get_contents( WC_CAT_SLIDER_INCLUDES . '/Admin/views/json-google-fonts.php' );
+	$fonts     = file_get_contents( WC_CAT_SLIDER_INCLUDES . '/Admin/views/json-google-fonts.php' ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
 	$fonts     = wp_list_pluck( json_decode( $fonts )->items, 'family' );
 	$font_list = array( __( 'None', 'woo-category-slider-by-pluginever' ) );
 	foreach ( $fonts as $font ) {
-		$key               = urlencode( $font );
+		$key               = urlencode( $font ); // phpcs:ignore WordPress.PHP.DiscouragedPHPFunctions.urlencode_urlencode
 		$font_list[ $key ] = $font;
 	}
+
 	return $font_list;
 }
 
@@ -852,7 +854,7 @@ function wc_category_slider_rest_api_get_all_sliders() {
 /**
  * Slider Rest Api preview Data.
  *
- * @param array $data Slider Data
+ * @param array $data Slider Data.
  *
  * @since 1.0.0
  * @return mixed

@@ -9,7 +9,7 @@ defined( 'ABSPATH' ) || exit();
  * Admin class.
  *
  * @since 1.0.1
- * @package WooCommerceVariationSwatchesPro\Admin
+ * @package WooCommerceCategorySlider\Admin
  */
 class Admin {
 	/**

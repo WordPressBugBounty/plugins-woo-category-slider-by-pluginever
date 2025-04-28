@@ -67,8 +67,9 @@ class RestAPI {
 			'/slider/all',
 			array(
 				array(
-					'methods'  => 'GET',
-					'callback' => 'wc_category_slider_rest_api_get_all_sliders',
+					'methods'             => 'GET',
+					'callback'            => 'wc_category_slider_rest_api_get_all_sliders',
+					'permission_callback' => '__return_true',
 				),
 			)
 		);
@@ -78,8 +79,9 @@ class RestAPI {
 			'/slider/(?P<id>\d+)',
 			array(
 				array(
-					'methods'  => 'GET',
-					'callback' => 'wc_category_slider_rest_api_get_slider_preview',
+					'methods'             => 'GET',
+					'callback'            => 'wc_category_slider_rest_api_get_slider_preview',
+					'permission_callback' => '__return_true',
 				),
 			)
 		);

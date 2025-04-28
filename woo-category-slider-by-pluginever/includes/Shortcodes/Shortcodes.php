@@ -16,7 +16,6 @@ class Shortcodes {
 	 */
 	public function __construct() {
 		add_shortcode( 'woo_category_slider', array( $this, 'render' ) );
-		add_shortcode( 'wc_category_slider', array( $this, 'render_shortcode_demo' ) );
 		add_filter( 'wc_category_slider_categories', array( $this, 'wc_slider_get_categories_data' ), 10, 2 );
 	}
 
@@ -32,53 +31,6 @@ class Shortcodes {
 	public function wc_slider_get_categories_data( $categories, $slider_id ) {
 		$meta = wc_category_slider_get_meta( $slider_id, 'categories' );
 		return $categories;
-	}
-
-	/**
-	 * Render Slider Shortcode.
-	 *
-	 * @param array $attr Shortcode Data.
-	 *
-	 * @since 1.0.0
-	 * @return false|string
-	 */
-	public function render_shortcode_demo( $attr ) {
-		ob_start();
-		$attr = wp_parse_args(
-			$attr,
-			array(
-				'template' => 'default',
-			)
-		);
-		?>
-		<style>
-			.wc-slider {
-				width: 300px !important;
-				overflow: hidden;
-				float: left;
-				margin: 0 10px 10px 0;
-			}
-
-			.wrap {
-				width: 1200px !important;
-			}
-		</style>
-		<?php
-
-		$files = glob( WC_CAT_SLIDER_TEMPLATES . '/*.php' );
-		foreach ( $files as $file ) {
-			include $file;
-		}
-
-		$file = WC_CAT_SLIDER_TEMPLATES . '/' . $attr['template'] . '.php';
-		if ( file_exists( $file ) ) {
-			include $file;
-		}
-
-		$html = ob_get_contents();
-		ob_get_clean();
-
-		return $html;
 	}
 
 	/**
