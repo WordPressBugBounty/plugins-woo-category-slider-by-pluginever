@@ -4,16 +4,12 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit6e8cef399a06b8b5c9605dd25c27f5ae
+class ComposerStaticInit7e8d9d72d1823aa56695049e29d7bf50
 {
     public static $prefixLengthsPsr4 = array (
         'W' => 
         array (
             'WooCommerceCategorySlider\\' => 26,
-        ),
-        'B' => 
-        array (
-            'ByteKit\\' => 8,
         ),
     );
 
@@ -22,21 +18,9 @@ class ComposerStaticInit6e8cef399a06b8b5c9605dd25c27f5ae
         array (
             0 => __DIR__ . '/../..' . '/includes',
         ),
-        'ByteKit\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/byteever/bytekit-plugin/src',
-        ),
     );
 
     public static $classMap = array (
-        'ByteKit\\Admin\\Flash' => __DIR__ . '/..' . '/byteever/bytekit-plugin/src/Admin/Flash.php',
-        'ByteKit\\Admin\\Notices' => __DIR__ . '/..' . '/byteever/bytekit-plugin/src/Admin/Notices.php',
-        'ByteKit\\Interfaces\\Pluginable' => __DIR__ . '/..' . '/byteever/bytekit-plugin/src/Interfaces/Pluginable.php',
-        'ByteKit\\Interfaces\\Scriptable' => __DIR__ . '/..' . '/byteever/bytekit-plugin/src/Interfaces/Scriptable.php',
-        'ByteKit\\Plugin' => __DIR__ . '/..' . '/byteever/bytekit-plugin/src/Plugin.php',
-        'ByteKit\\Scripts' => __DIR__ . '/..' . '/byteever/bytekit-plugin/src/Scripts.php',
-        'ByteKit\\Services' => __DIR__ . '/..' . '/byteever/bytekit-plugin/src/Services.php',
-        'ByteKit\\Traits\\HasPlugin' => __DIR__ . '/..' . '/byteever/bytekit-plugin/src/Traits/HasPlugin.php',
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'WooCommerceCategorySlider\\Admin\\Admin' => __DIR__ . '/../..' . '/includes/Admin/Admin.php',
         'WooCommerceCategorySlider\\Admin\\Notices' => __DIR__ . '/../..' . '/includes/Admin/Notices.php',
@@ -50,9 +34,9 @@ class ComposerStaticInit6e8cef399a06b8b5c9605dd25c27f5ae
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit6e8cef399a06b8b5c9605dd25c27f5ae::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit6e8cef399a06b8b5c9605dd25c27f5ae::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit6e8cef399a06b8b5c9605dd25c27f5ae::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit7e8d9d72d1823aa56695049e29d7bf50::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit7e8d9d72d1823aa56695049e29d7bf50::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit7e8d9d72d1823aa56695049e29d7bf50::$classMap;
 
         }, null, ClassLoader::class);
     }

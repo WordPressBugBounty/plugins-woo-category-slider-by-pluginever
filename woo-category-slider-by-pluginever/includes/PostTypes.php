@@ -125,7 +125,7 @@ class PostTypes {
 	 * @return mixed
 	 */
 	public function custom_post_update_message( $messages ) {
-		global $post, $post_ID;
+		wp_verify_nonce( '_nonce' );
 
 		$messages['wc_category_slider'] = array(
 			0  => '',

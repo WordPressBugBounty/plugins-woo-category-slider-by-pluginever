@@ -1,14 +1,17 @@
 <?php
+/**
+ * Slider Settings Metabox
+ *
+ * @package WooCategorySlider
+ * @since 1.0.0
+ * @var \WP_Post $post The current post object.
+ */
 
 use WooCommerceCategorySlider\Controllers\SliderElements;
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
+defined( 'ABSPATH' ) || exit;
 
-global $post;
-
-echo SliderElements::switcher(
+echo SliderElements::switcher( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	array(
 		'name'  => 'hide_image',
 		'label' => esc_html__( 'Hide Image', 'woo-category-slider-by-pluginever' ),
@@ -17,7 +20,7 @@ echo SliderElements::switcher(
 	)
 );
 
-echo SliderElements::switcher(
+echo SliderElements::switcher( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	array(
 		'name'    => 'hide_content',
 		'label'   => esc_html__( 'Hide Content', 'woo-category-slider-by-pluginever' ),
@@ -27,7 +30,7 @@ echo SliderElements::switcher(
 	)
 );
 
-echo SliderElements::switcher(
+echo SliderElements::switcher( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	array(
 		'name'  => 'hide_button',
 		'label' => esc_html__( 'Hide Button', 'woo-category-slider-by-pluginever' ),
@@ -36,7 +39,7 @@ echo SliderElements::switcher(
 	)
 );
 
-echo SliderElements::switcher(
+echo SliderElements::switcher( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	array(
 		'name'  => 'hide_icon',
 		'label' => esc_html__( 'Hide Icon', 'woo-category-slider-by-pluginever' ),
@@ -45,7 +48,7 @@ echo SliderElements::switcher(
 	)
 );
 
-echo SliderElements::switcher(
+echo SliderElements::switcher( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	array(
 		'name'  => 'hide_name',
 		'label' => esc_html__( 'Hide Category Name', 'woo-category-slider-by-pluginever' ),
@@ -54,7 +57,7 @@ echo SliderElements::switcher(
 	)
 );
 
-echo SliderElements::switcher(
+echo SliderElements::switcher( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	array(
 		'name'  => 'hide_count',
 		'label' => esc_html__( 'Hide Product Count', 'woo-category-slider-by-pluginever' ),
@@ -63,7 +66,7 @@ echo SliderElements::switcher(
 	)
 );
 
-echo SliderElements::switcher(
+echo SliderElements::switcher( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	array(
 		'name'  => 'hide_nav',
 		'label' => esc_html__( 'Hide Navigation', 'woo-category-slider-by-pluginever' ),
@@ -72,7 +75,7 @@ echo SliderElements::switcher(
 	)
 );
 
-echo SliderElements::switcher(
+echo SliderElements::switcher( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	array(
 		'name'  => 'hide_paginate',
 		'label' => esc_html__( 'Hide Pagination', 'woo-category-slider-by-pluginever' ),
@@ -81,7 +84,7 @@ echo SliderElements::switcher(
 	)
 );
 
-echo SliderElements::switcher(
+echo SliderElements::switcher( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	array(
 		'name'  => 'hide_border',
 		'label' => esc_html__( 'Hide Border', 'woo-category-slider-by-pluginever' ),
@@ -90,16 +93,16 @@ echo SliderElements::switcher(
 	)
 );
 
-echo SliderElements::select(
+echo SliderElements::select( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	array(
-		'label'            => esc_html__( 'Image Hover effect', 'woo-category-slider-by-pluginever' ),
+		'label'            => esc_html__( 'Image Hover Effect', 'woo-category-slider-by-pluginever' ),
 		'name'             => 'hover_style',
 		'placeholder'      => '',
 		'show_option_all'  => '',
 		'show_option_none' => '',
 		'value'            => 'default',
 		'selected'         => esc_attr( wc_category_slider_get_meta( $post->ID, 'hover_style', 'hover-zoom-in' ) ),
-		'options'          => apply_filters(
+		'options'          => apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			'wc_category_slider_hover_styles',
 			array(
 				'no-hover'      => esc_html__( 'No Hover', 'woo-category-slider-by-pluginever' ),
@@ -110,7 +113,7 @@ echo SliderElements::select(
 	)
 );
 
-echo SliderElements::select(
+echo SliderElements::select( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	array(
 		'name'             => 'theme',
 		'label'            => esc_html__( 'Theme', 'woo-category-slider-by-pluginever' ),
@@ -120,20 +123,19 @@ echo SliderElements::select(
 		'selected'         => esc_attr( wc_category_slider_get_meta( $post->ID, 'theme', 'default' ) ),
 		'value'            => 'default',
 		'desc'             => esc_html__( 'Choose theme for the slider', 'woo-category-slider-by-pluginever' ),
-		'options'          => apply_filters(
+		'options'          => apply_filters( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			'wc_category_slider_themes',
 			array(
 				'default' => 'Default',
 				'basic'   => 'Basic',
 			)
 		),
-
 	)
 );
 
-echo wc_get_metabox_promo_text();
+echo wp_kses_post( wccs_get_metabox_promo_text() );
 
-echo SliderElements::input(
+echo SliderElements::input( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	apply_filters(
 		'wc_category_slider_button_text_args',
 		array(
@@ -143,11 +145,11 @@ echo SliderElements::input(
 			'disabled'    => 'disabled',
 			'desc'        => esc_html__( 'Text for the slide button', 'woo-category-slider-by-pluginever' ),
 		),
-		$post->ID
+		esc_attr( $post->ID )
 	)
 );
 
-echo SliderElements::input(
+echo SliderElements::input( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	apply_filters(
 		'wc_category_slider_product_text_args',
 		array(
@@ -161,7 +163,7 @@ echo SliderElements::input(
 	)
 );
 
-echo SliderElements::select(
+echo SliderElements::select( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	apply_filters(
 		'wc_category_slider_button_type_args',
 		array(
@@ -182,7 +184,7 @@ echo SliderElements::select(
 );
 
 
-echo SliderElements::switcher(
+echo SliderElements::switcher( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	apply_filters(
 		'wc_category_slider_show_desc_args',
 		array(
@@ -195,7 +197,7 @@ echo SliderElements::switcher(
 	)
 );
 
-echo SliderElements::input(
+echo SliderElements::input( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	apply_filters(
 		'wc_category_slider_word_limit_args',
 		array(
@@ -209,7 +211,7 @@ echo SliderElements::input(
 	)
 );
 
-echo SliderElements::colorpicker(
+echo SliderElements::colorpicker( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	apply_filters(
 		'wc_category_slider_button_bg_color_args',
 		array(
@@ -222,7 +224,7 @@ echo SliderElements::colorpicker(
 	)
 );
 
-echo SliderElements::colorpicker(
+echo SliderElements::colorpicker( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	apply_filters(
 		'wc_category_slider_button_color_args',
 		array(
@@ -235,7 +237,7 @@ echo SliderElements::colorpicker(
 	)
 );
 
-echo SliderElements::colorpicker(
+echo SliderElements::colorpicker( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	apply_filters(
 		'wc_category_slider_name_color_args',
 		array(
@@ -248,7 +250,7 @@ echo SliderElements::colorpicker(
 	)
 );
 
-echo SliderElements::colorpicker(
+echo SliderElements::colorpicker( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	apply_filters(
 		'wc_category_slider_icon_color_args',
 		array(
@@ -261,7 +263,7 @@ echo SliderElements::colorpicker(
 	)
 );
 
-echo SliderElements::select(
+echo SliderElements::select( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	apply_filters(
 		'wc_category_slider_icon_size_args',
 		array(
@@ -288,7 +290,7 @@ echo SliderElements::select(
 	)
 );
 
-echo SliderElements::colorpicker(
+echo SliderElements::colorpicker( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	apply_filters(
 		'wc_category_slider_description_color_args',
 		array(
@@ -301,7 +303,7 @@ echo SliderElements::colorpicker(
 	)
 );
 
-echo SliderElements::colorpicker(
+echo SliderElements::colorpicker( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	apply_filters(
 		'wc_category_slider_product_count_color_args',
 		array(
@@ -314,7 +316,7 @@ echo SliderElements::colorpicker(
 	)
 );
 
-echo SliderElements::colorpicker(
+echo SliderElements::colorpicker( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	apply_filters(
 		'wc_category_slider_children_category_color_args',
 		array(
@@ -326,7 +328,7 @@ echo SliderElements::colorpicker(
 	)
 );
 
-echo SliderElements::colorpicker(
+echo SliderElements::colorpicker( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	apply_filters(
 		'wc_category_slider_content_bg_args',
 		array(
@@ -338,7 +340,7 @@ echo SliderElements::colorpicker(
 	)
 );
 
-echo SliderElements::colorpicker(
+echo SliderElements::colorpicker( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	apply_filters(
 		'wc_category_slider_border_color_args',
 		array(
@@ -350,7 +352,7 @@ echo SliderElements::colorpicker(
 	)
 );
 
-echo SliderElements::colorpicker(
+echo SliderElements::colorpicker( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	apply_filters(
 		'wc_category_slider_border_hover_color_args',
 		array(
@@ -362,7 +364,7 @@ echo SliderElements::colorpicker(
 	)
 );
 
-echo SliderElements::input(
+echo SliderElements::input( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	apply_filters(
 		'wc_category_slider_border_width_args',
 		array(
@@ -380,7 +382,7 @@ echo SliderElements::input(
 	)
 );
 
-echo SliderElements::select(
+echo SliderElements::select( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	apply_filters(
 		'wc_category_slider_image_size_args',
 		array(
@@ -389,14 +391,14 @@ echo SliderElements::select(
 			'placeholder'      => '',
 			'show_option_all'  => '',
 			'show_option_none' => '',
-			'options'          => wc_category_slider_get_image_sizes(),
+			'options'          => wc_category_slider_get_image_sizes(), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			'disabled'         => 'disabled',
 		),
 		esc_attr( $post->ID )
 	)
 );
 
-echo SliderElements::textarea(
+echo SliderElements::textarea( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	apply_filters(
 		'wc_category_slider_custom_css_args',
 		array(

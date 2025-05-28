@@ -2,9 +2,9 @@
 # This file is distributed under the GPL v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: Product Category Slider for WooCommerce 4.3.5\n"
+"Project-Id-Version: Product Category Slider for WooCommerce 4.3.6\n"
 "Report-Msgid-Bugs-To: https://pluginever.com/support/\n"
-"POT-Creation-Date: 2025-04-28 06:45:35+00:00\n"
+"POT-Creation-Date: 2025-05-27 12:00:11+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -24,140 +24,144 @@ msgstr ""
 "X-Textdomain-Support: yes\n"
 "X-Generator: grunt-wp-i18n 1.0.3\n"
 
-#: includes/Admin/Admin.php:66
+#: includes/Admin/Admin.php:65
 msgid "Change Image"
 msgstr ""
 
-#: includes/Admin/Admin.php:67
+#: includes/Admin/Admin.php:66
 msgid "Delete Image"
 msgstr ""
 
-#: includes/Admin/Admin.php:87
+#: includes/Admin/Admin.php:82
 msgid "No Icon"
 msgstr ""
 
-#: includes/Admin/Admin.php:104
+#: includes/Admin/Admin.php:95
 #. Translators: 1.Version Name.
 msgid "%s Icons"
 msgstr ""
 
-#: includes/Admin/Admin.php:401
+#: includes/Admin/Admin.php:376
 msgid "Selection Type"
 msgstr ""
 
-#: includes/Admin/Admin.php:413
+#: includes/Admin/Admin.php:388
 msgid "Select all categories or any custom categories"
 msgstr ""
 
-#: includes/Admin/Admin.php:419
+#: includes/Admin/Admin.php:394
 msgid "Select Categories"
 msgstr ""
 
-#: includes/Admin/Admin.php:439
+#: includes/Admin/Admin.php:404
+msgid "Select categories to show in the slider."
+msgstr ""
+
+#: includes/Admin/Admin.php:414
 msgid "Limit Items"
 msgstr ""
 
-#: includes/Admin/Admin.php:443
+#: includes/Admin/Admin.php:418
 msgid "Limit the number of category appear on the slider"
 msgstr ""
 
-#: includes/Admin/Admin.php:449
+#: includes/Admin/Admin.php:424
 msgid "Include Children"
 msgstr ""
 
-#: includes/Admin/Admin.php:453
+#: includes/Admin/Admin.php:428
 msgid "Will include subcategories of the selected categories"
 msgstr ""
 
-#: includes/Admin/Admin.php:462
+#: includes/Admin/Admin.php:437
 msgid "Empty Categories"
 msgstr ""
 
-#: includes/Admin/Admin.php:463
+#: includes/Admin/Admin.php:438
 msgid "Show/hide Category without products"
 msgstr ""
 
-#: includes/Admin/Admin.php:471
+#: includes/Admin/Admin.php:446
 msgid "Order By"
 msgstr ""
 
-#: includes/Admin/Admin.php:478
+#: includes/Admin/Admin.php:453
 msgid "Term ID"
 msgstr ""
 
-#: includes/Admin/Admin.php:479
+#: includes/Admin/Admin.php:454
 msgid "Term Name"
 msgstr ""
 
-#: includes/Admin/Admin.php:480
+#: includes/Admin/Admin.php:455
 msgid "Term Description"
 msgstr ""
 
-#: includes/Admin/Admin.php:481
+#: includes/Admin/Admin.php:456
 msgid "Term Group"
 msgstr ""
 
-#: includes/Admin/Admin.php:482
+#: includes/Admin/Admin.php:457
 msgid "Count"
 msgstr ""
 
-#: includes/Admin/Admin.php:483
+#: includes/Admin/Admin.php:458
 msgid "Custom"
 msgstr ""
 
-#: includes/Admin/Admin.php:484 includes/functions.php:758
+#: includes/Admin/Admin.php:459 includes/functions.php:758
 msgid "None"
 msgstr ""
 
-#: includes/Admin/Admin.php:488 includes/Admin/Admin.php:511
+#: includes/Admin/Admin.php:463 includes/Admin/Admin.php:486
 msgid "Order category slider according to the selection type"
 msgstr ""
 
-#: includes/Admin/Admin.php:499
+#: includes/Admin/Admin.php:474
 msgid "Order"
 msgstr ""
 
-#: includes/Admin/Admin.php:527
+#: includes/Admin/Admin.php:500
 msgid "Publish"
 msgstr ""
 
-#: includes/Admin/Admin.php:528
+#: includes/Admin/Admin.php:501
 msgid "Create Slider"
 msgstr ""
 
-#: includes/Admin/Admin.php:534
+#: includes/Admin/Admin.php:507
 msgid "Update Slider"
 msgstr ""
 
-#: includes/Admin/Admin.php:558
-msgid "Use the shortocode to render the slider anywhere in the page or post."
+#: includes/Admin/Admin.php:531
+msgid "Use the shortcode to render the slider anywhere in the page or post."
 msgstr ""
 
-#: includes/Admin/Admin.php:586
-#: vendor-prefixed/byteever/bytekit-plugin/src/Traits/HasPlugin.php:238
+#: includes/Admin/Admin.php:556
+#: libraries/byteever/bytekit-plugin/src/Traits/HasPlugin.php:238
 msgid "Settings"
 msgstr ""
 
-#: includes/Admin/Admin.php:587
+#: includes/Admin/Admin.php:557
 msgid "Category Settings"
 msgstr ""
 
-#: includes/Admin/Admin.php:588 includes/PostTypes.php:93
+#: includes/Admin/Admin.php:558 includes/PostTypes.php:93
 msgid "Shortcode"
 msgstr ""
 
-#: includes/Admin/Admin.php:615
+#: includes/Admin/Admin.php:585
 #. translators: 1: Plugin name 2: WordPress
 msgid ""
 "Thank you for using %1$s. If you like it, please leave us a %2$s rating. A "
 "huge thank you from PluginEver in advance!"
 msgstr ""
 
-#: includes/Admin/Admin.php:617
+#: includes/Admin/Admin.php:587
 msgid "Thanks :)"
 msgstr ""
 
-#: includes/Admin/Admin.php:636
+#: includes/Admin/Admin.php:606
 #. translators: 1: Plugin version
 msgid "Version %s"
 msgstr ""
@@ -166,399 +170,342 @@ msgstr ""
 msgid "Categories are loading...."
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:14
+#: includes/Admin/views/metabox-display-settings.php:17
 msgid "Hide Image"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:16
+#: includes/Admin/views/metabox-display-settings.php:19
 msgid "Show/Hide image"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:23
+#: includes/Admin/views/metabox-display-settings.php:26
 msgid "Hide Content"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:26
+#: includes/Admin/views/metabox-display-settings.php:29
 msgid "Show/Hide titile, button, description, icon"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:33
+#: includes/Admin/views/metabox-display-settings.php:36
 msgid "Hide Button"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:35
+#: includes/Admin/views/metabox-display-settings.php:38
 msgid "Show/Hide button"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:42
+#: includes/Admin/views/metabox-display-settings.php:45
 msgid "Hide Icon"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:44
+#: includes/Admin/views/metabox-display-settings.php:47
 msgid "Show/Hide icon"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:51
+#: includes/Admin/views/metabox-display-settings.php:54
 msgid "Hide Category Name"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:53
+#: includes/Admin/views/metabox-display-settings.php:56
 msgid "Show/Hide category name"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:60
+#: includes/Admin/views/metabox-display-settings.php:63
 msgid "Hide Product Count"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:62
+#: includes/Admin/views/metabox-display-settings.php:65
 msgid "Show/Hide slider product count"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:69
+#: includes/Admin/views/metabox-display-settings.php:72
 msgid "Hide Navigation"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:71
+#: includes/Admin/views/metabox-display-settings.php:74
 msgid "Show/Hide slider navigation"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:78
+#: includes/Admin/views/metabox-display-settings.php:81
 msgid "Hide Pagination"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:80
+#: includes/Admin/views/metabox-display-settings.php:83
 msgid "Show/Hide dotted pagination"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:87
+#: includes/Admin/views/metabox-display-settings.php:90
 msgid "Hide Border"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:89
+#: includes/Admin/views/metabox-display-settings.php:92
 msgid "Border around slider image."
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:95
-msgid "Image Hover effect"
+#: includes/Admin/views/metabox-display-settings.php:98
+msgid "Image Hover Effect"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:105
+#: includes/Admin/views/metabox-display-settings.php:108
 msgid "No Hover"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:106
+#: includes/Admin/views/metabox-display-settings.php:109
 msgid "Zoom In"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:109
+#: includes/Admin/views/metabox-display-settings.php:112
 msgid "Choose image hover effects."
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:116
+#: includes/Admin/views/metabox-display-settings.php:119
 msgid "Theme"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:122
+#: includes/Admin/views/metabox-display-settings.php:125
 msgid "Choose theme for the slider"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:141
+#: includes/Admin/views/metabox-display-settings.php:143
 msgid "Button Text"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:142
-#: includes/Shortcodes/Shortcodes.php:73
+#: includes/Admin/views/metabox-display-settings.php:144
+#: includes/Shortcodes/Shortcodes.php:72
 msgid "Shop Now"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:144
+#: includes/Admin/views/metabox-display-settings.php:146
 msgid "Text for the slide button"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:155
+#: includes/Admin/views/metabox-display-settings.php:157
 msgid "Custom Text"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:156
-#: includes/Shortcodes/Shortcodes.php:74
+#: includes/Admin/views/metabox-display-settings.php:158
+#: includes/Shortcodes/Shortcodes.php:73
 msgid "Products"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:158
+#: includes/Admin/views/metabox-display-settings.php:160
 msgid "Replace 'products' with custom text "
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:169
+#: includes/Admin/views/metabox-display-settings.php:171
 msgid "Button Type"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:177
+#: includes/Admin/views/metabox-display-settings.php:179
 msgid "Choose button type."
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:190
+#: includes/Admin/views/metabox-display-settings.php:192
 msgid "Show Category Description"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:191
+#: includes/Admin/views/metabox-display-settings.php:193
 msgid "Show/ Hide category description"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:203
+#: includes/Admin/views/metabox-display-settings.php:205
 msgid "Word Limit"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:206
+#: includes/Admin/views/metabox-display-settings.php:208
 msgid "Category description word limit"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:217
+#: includes/Admin/views/metabox-display-settings.php:219
 msgid "Button Background"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:218
+#: includes/Admin/views/metabox-display-settings.php:220
 msgid "Choose color for button background."
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:230
+#: includes/Admin/views/metabox-display-settings.php:232
 msgid "Button Color"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:231
+#: includes/Admin/views/metabox-display-settings.php:233
 msgid "Choose color for button."
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:243
+#: includes/Admin/views/metabox-display-settings.php:245
 msgid "Category Name Color"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:244
+#: includes/Admin/views/metabox-display-settings.php:246
 msgid "Choose color for category name."
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:256
+#: includes/Admin/views/metabox-display-settings.php:258
 msgid "Icon Color"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:258
+#: includes/Admin/views/metabox-display-settings.php:260
 msgid "Choose color for icon."
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:268
+#: includes/Admin/views/metabox-display-settings.php:270
 msgid "Icon Size"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:273
+#: includes/Admin/views/metabox-display-settings.php:275
 msgid "Choose size for icons."
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:296
+#: includes/Admin/views/metabox-display-settings.php:298
 msgid "Description Color"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:298
+#: includes/Admin/views/metabox-display-settings.php:300
 msgid "Choose color for category description."
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:309
+#: includes/Admin/views/metabox-display-settings.php:311
 msgid "Product Count Color"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:311
+#: includes/Admin/views/metabox-display-settings.php:313
 msgid "Choose color for prodcut count number."
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:322
+#: includes/Admin/views/metabox-display-settings.php:324
 msgid "Children Category Color"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:334
+#: includes/Admin/views/metabox-display-settings.php:336
 msgid "Content Background Color"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:346
+#: includes/Admin/views/metabox-display-settings.php:348
 msgid "Border Color"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:358
+#: includes/Admin/views/metabox-display-settings.php:360
 msgid "Border Hover Color"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:370
+#: includes/Admin/views/metabox-display-settings.php:372
 msgid "Border Width"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:373
+#: includes/Admin/views/metabox-display-settings.php:375
 msgid "Unit is in px. only input number"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:388
+#: includes/Admin/views/metabox-display-settings.php:390
 msgid "Image Size"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:404
+#: includes/Admin/views/metabox-display-settings.php:406
 msgid "Custom CSS"
 msgstr ""
 
-#: includes/Admin/views/metabox-display-settings.php:408
+#: includes/Admin/views/metabox-display-settings.php:410
 msgid "Add Custom CSS"
 msgstr ""
 
-#: includes/Admin/views/metabox-font-settings.php:13
+#: includes/Admin/views/metabox-font-settings.php:21
 msgid "Title Font Family"
 msgstr ""
 
-#: includes/Admin/views/metabox-font-settings.php:23
+#: includes/Admin/views/metabox-font-settings.php:31
 msgid "Select the font family for title"
 msgstr ""
 
-#: includes/Admin/views/metabox-font-settings.php:33
+#: includes/Admin/views/metabox-font-settings.php:41
 msgid "Description Font Family"
 msgstr ""
 
-#: includes/Admin/views/metabox-font-settings.php:43
+#: includes/Admin/views/metabox-font-settings.php:51
 msgid "Select the font family for details"
 msgstr ""
 
-#: includes/Admin/views/metabox-font-settings.php:53
+#: includes/Admin/views/metabox-font-settings.php:61
 msgid "Button Font Family"
 msgstr ""
 
-#: includes/Admin/views/metabox-font-settings.php:63
+#: includes/Admin/views/metabox-font-settings.php:71
 msgid "Select the font family for buttons"
 msgstr ""
 
-#: includes/Admin/views/metabox-slider-settings.php:8
+#: includes/Admin/views/metabox-slider-settings.php:15
 msgid "Slider Autoplay"
 msgstr ""
 
-#: includes/Admin/views/metabox-slider-settings.php:11
+#: includes/Admin/views/metabox-slider-settings.php:18
 msgid "Slider will automatically start playing is set Yes."
 msgstr ""
 
-#: includes/Admin/views/metabox-slider-settings.php:18
+#: includes/Admin/views/metabox-slider-settings.php:25
 msgid "Slider RTL"
 msgstr ""
 
-#: includes/Admin/views/metabox-slider-settings.php:21
+#: includes/Admin/views/metabox-slider-settings.php:28
 msgid "Slider direction from Right to left is set Yes."
 msgstr ""
 
-#: includes/Admin/views/metabox-slider-settings.php:32
+#: includes/Admin/views/metabox-slider-settings.php:39
 msgid "Lazy Load"
 msgstr ""
 
-#: includes/Admin/views/metabox-slider-settings.php:46
+#: includes/Admin/views/metabox-slider-settings.php:53
 msgid "Number of Column (Desktop)"
 msgstr ""
 
-#: includes/Admin/views/metabox-slider-settings.php:49
+#: includes/Admin/views/metabox-slider-settings.php:56
 msgid "The number of slide for desktop screen."
 msgstr ""
 
-#: includes/Admin/views/metabox-slider-settings.php:61
+#: includes/Admin/views/metabox-slider-settings.php:68
 msgid "Number of Column (Tablet)"
 msgstr ""
 
-#: includes/Admin/views/metabox-slider-settings.php:64
+#: includes/Admin/views/metabox-slider-settings.php:71
 msgid "The number of slide for tablet screen."
 msgstr ""
 
-#: includes/Admin/views/metabox-slider-settings.php:76
+#: includes/Admin/views/metabox-slider-settings.php:83
 msgid "Number of Column (Phone)"
 msgstr ""
 
-#: includes/Admin/views/metabox-slider-settings.php:79
+#: includes/Admin/views/metabox-slider-settings.php:86
 msgid "The number of slide for mobile screen."
 msgstr ""
 
-#: includes/Admin/views/metabox-slider-settings.php:90
+#: includes/Admin/views/metabox-slider-settings.php:97
 msgid "AutoPlay Speed"
 msgstr ""
 
-#: includes/Admin/views/metabox-slider-settings.php:94
+#: includes/Admin/views/metabox-slider-settings.php:101
 msgid "The slide auto playing time in millisecond."
 msgstr ""
 
-#: includes/Admin/views/metabox-slider-settings.php:105
+#: includes/Admin/views/metabox-slider-settings.php:112
 msgid "Slider Speed"
 msgstr ""
 
-#: includes/Admin/views/metabox-slider-settings.php:109
+#: includes/Admin/views/metabox-slider-settings.php:116
 msgid "The interval time of the slide change in millisecond."
 msgstr ""
 
-#: includes/Admin/views/metabox-slider-settings.php:120
+#: includes/Admin/views/metabox-slider-settings.php:127
 msgid "Loop"
 msgstr ""
 
-#: includes/Admin/views/metabox-slider-settings.php:122
+#: includes/Admin/views/metabox-slider-settings.php:129
 msgid "Switch On/ Off the slider loop"
 msgstr ""
 
-#: includes/Admin/views/metabox-slider-settings.php:134
+#: includes/Admin/views/metabox-slider-settings.php:141
 msgid "Column Gap"
 msgstr ""
 
-#: includes/Admin/views/metabox-slider-settings.php:137
+#: includes/Admin/views/metabox-slider-settings.php:144
 msgid "Space between the slide in pixel unit. Default: 10px"
-msgstr ""
-
-#: includes/Admin/views/metabox.php:47
-#. translators: 1: Nav Menu Item
-msgid "%1$s"
-msgstr ""
-
-#: includes/Admin/views/notices/black-friday.php:19
-msgid "Black Friday & Cyber Monday: Flat 40% OFF on All Premium Plugins!"
-msgstr ""
-
-#: includes/Admin/views/notices/black-friday.php:26
-#. translators: 1.Offer Percentage, 2. Coupon Code.
-msgid ""
-"Boost your WooCommerce store this Black Friday! Get %1$s on all premium "
-"plugins with code %2$s. Don’t miss this limited-time deal!"
-msgstr ""
-
-#: includes/Admin/views/notices/black-friday.php:39
-msgid "Claim your 40% discount!!"
-msgstr ""
-
-#: includes/Admin/views/notices/black-friday.php:43
-#: includes/Admin/views/notices/halloween.php:44
-msgid "Remind me later"
-msgstr ""
-
-#: includes/Admin/views/notices/black-friday.php:47
-#: includes/Admin/views/notices/halloween.php:52
-msgid "DISMISS"
-msgstr ""
-
-#: includes/Admin/views/notices/black-friday.php:50
-msgid "Valid until December 07, 2024"
-msgstr ""
-
-#: includes/Admin/views/notices/halloween.php:20
-msgid "Limited Time Offer! PluginEver Halloween Sale: 30% OFF!!"
-msgstr ""
-
-#: includes/Admin/views/notices/halloween.php:27
-#. translators: 1.Offer Percentage, 2. Coupon Code.
-msgid ""
-"Spectacular Halloween Deal! Get %1$s on all premium plugins with code %2$s. "
-"Don't miss out — this offer vanishes soon! 👻"
-msgstr ""
-
-#: includes/Admin/views/notices/halloween.php:40
-msgid "Claim your discount!!"
-msgstr ""
-
-#: includes/Admin/views/notices/halloween.php:48
-msgid "Never show this again!"
-msgstr ""
-
-#: includes/Admin/views/notices/halloween.php:55
-msgid "Valid until November 10, 2024"
 msgstr ""
 
 #: includes/Admin/views/notices/review.php:19
@@ -593,9 +540,9 @@ msgstr ""
 #: includes/Admin/views/notices/upgrade.php:24
 #. translators: %1$s: WC Category Slider Pro link, %2$s: Coupon code.
 msgid ""
-"Get access to %1$s with a <strong>20%% discount</strong> for the next "
-"<strong>72 hours</strong> only! Use coupon code %2$s at checkout. Hurry up, "
-"the offer ends soon."
+"Enjoy <strong>10%% discount</strong> on %1$s! Use coupon code %2$s at "
+"checkout to grab the exclusive deal. Don’t miss out — this offer won’t last "
+"forever!"
 msgstr ""
 
 #: includes/Admin/views/notices/upgrade.php:36
@@ -713,19 +660,19 @@ msgstr ""
 msgid "Category slider draft."
 msgstr ""
 
-#: includes/functions.php:791
+#: includes/functions.php:790
 msgid "Default"
 msgstr ""
 
-#: includes/functions.php:814
+#: includes/functions.php:813
 msgid "Access <strong>PRO</strong> features by upgrading to PRO "
 msgstr ""
 
-#: includes/functions.php:814
+#: includes/functions.php:813
 msgid "Get The PRO Version."
 msgstr ""
 
-#: includes/functions.php:816
+#: includes/functions.php:815
 msgid "Pro Features"
 msgstr ""
 
@@ -733,23 +680,23 @@ msgstr ""
 msgid "You do not have access to this resource."
 msgstr ""
 
-#: includes/functions.php:878
+#: includes/functions.php:880
 msgid "Given slider ID is not valid."
 msgstr ""
 
-#: vendor-prefixed/byteever/bytekit-plugin/src/Admin/Notices.php:113
+#: libraries/byteever/bytekit-plugin/src/Admin/Notices.php:113
 msgid "Dismiss this notice"
 msgstr ""
 
-#: vendor-prefixed/byteever/bytekit-plugin/src/Traits/HasPlugin.php:211
+#: libraries/byteever/bytekit-plugin/src/Traits/HasPlugin.php:211
 msgid "Documentation"
 msgstr ""
 
-#: vendor-prefixed/byteever/bytekit-plugin/src/Traits/HasPlugin.php:214
+#: libraries/byteever/bytekit-plugin/src/Traits/HasPlugin.php:214
 msgid "Support"
 msgstr ""
 
-#: vendor-prefixed/byteever/bytekit-plugin/src/Traits/HasPlugin.php:217
+#: libraries/byteever/bytekit-plugin/src/Traits/HasPlugin.php:217
 msgid "Review"
 msgstr ""
 

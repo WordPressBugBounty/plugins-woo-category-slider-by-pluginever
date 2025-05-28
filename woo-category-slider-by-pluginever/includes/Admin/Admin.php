@@ -43,7 +43,6 @@ class Admin {
 		}
 
 		$disabled = is_plugin_active( 'wc-category-slider-pro/wc-category-slider-pro.php' ) ? '' : 'disabled';
-
 		?>
 		<script type="text/html" id="tmpl-wc-category-slide">
 			<div class="ever-col-6 ever-slider-container">
@@ -66,35 +65,27 @@ class Admin {
 									<a href="javascript:void(0)" class="edit-image"><span class="dashicons dashicons-edit" title="<?php esc_html_e( 'Change Image', 'woo-category-slider-by-pluginever' ); ?>"></span></a>
 									<a href="javascript:void(0)" class="delete-image" title="<?php esc_html_e( 'Delete Image', 'woo-category-slider-by-pluginever' ); ?>"><span class="dashicons dashicons-trash"></span></a>
 								</div>
-
 							</div>
 						</div>
 						<div class="ever-slide-inner">
-
 							<!--title-->
 							<div class="ever-slide-title">
-								<input class="ever-slide-url-inputbox regular-text" name="categories[{{data.term_id}}][name]" placeholder="{{data.name}}" type="text" value="{{data.name}}" <?php echo $disabled; ?>>
+								<input class="ever-slide-url-inputbox regular-text" name="categories[{{data.term_id}}][name]" placeholder="{{data.name}}" type="text" value="{{data.name}}" <?php echo esc_attr( $disabled ); ?>>
 							</div>
-
 							<!--description-->
 							<div class="ever-slide-captionarea">
-								<textarea name="categories[{{data.term_id}}][description]" id="caption-{{data.term_id}}" class="ever-slide-captionarea-textfield" data-gramm_editor="false" placeholder="Description" <?php echo $disabled; ?>>{{data.description}}</textarea>
+								<textarea name="categories[{{data.term_id}}][description]" id="caption-{{data.term_id}}" class="ever-slide-captionarea-textfield" data-gramm_editor="false" placeholder="Description" <?php echo esc_attr( $disabled ); ?>>{{data.description}}</textarea>
 							</div>
-
 							<!--icon-->
 							<div class="ever-slide-icon">
 								<select name="categories[{{data.term_id}}][icon]" id="categories-{{data.term_id}}-icon" class="select-2">
 									<option value=""><?php esc_html_e( 'No Icon', 'woo-category-slider-by-pluginever' ); ?></option>
 									<?php
-
 									$icons = wc_slider_get_icon_list();
-
 									ob_start();
 
 									if ( ! is_plugin_active( 'wc-category-slider-pro/wc-category-slider-pro.php' ) ) {
-
 										for ( $a = 0; $a < 2; $a++ ) {
-
 											$offset       = 0 === $a ? 0 : 10;
 											$length       = 0 === $a ? 10 : - 1;
 											$sliced_icons = array_slice( $icons, $offset, $length );
@@ -105,73 +96,59 @@ class Admin {
 												0 === $a ? 'Free' : 'Pro'
 											);
 											$disabled = 0 === $a ? '' : 'disabled';
-
-											echo "<optgroup label='{$label}'>";
+											echo '<optgroup label="' . esc_attr( $label ) . '">';
 
 											foreach ( $sliced_icons as $key => $value ) {
-												printf( '<option value="%s" %s  <# if( data.icon == "' . $key . '" ){ #> selected <# } #> >&#x%s; &nbsp; %1$s</option>', $key, $disabled, $value );
+												printf( '<option value="%s" %s  <# if( data.icon == "' . esc_attr( $key ) . '" ){ #> selected <# } #> >&#x%s; &nbsp; %1$s</option>', sanitize_key( $key ), esc_attr( $disabled ), esc_attr( $value ) );
 											}
-
 											echo '</optgroup>';
-
 										}
 									} else {
 										foreach ( $icons as $key => $value ) {
-											printf( '<option value="%s"  <# if( data.icon == "' . $key . '" ){ #> selected <# } #> >&#x%s; &nbsp; %1$s</option>', $key, $value );
+											printf( '<option value="%s"  <# if( data.icon == "' . esc_attr( $key ) . '" ){ #> selected <# } #> >&#x%s; &nbsp; %1$s</option>', sanitize_key( $key ), esc_attr( $value ) );
 										}
 									}
 
-									$output = ob_get_clean();
-
-									echo $output;
-
+									echo ob_get_clean(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 									?>
-
 								</select>
-
-
 							</div>
-
-							<!--url-->
 							<div class="ever-slide-url">
 								<input type="hidden" name="categories[{{data.term_id}}][position]" value="{{data.position}}" class="category-position">
 								<input name="categories[{{data.term_id}}][url]" class="ever-slide-url-inputbox regular-text" placeholder="{{data.url}}" value="{{data.url}}" type="url" <?php echo esc_attr( $disabled ); ?>>
 							</div>
-
 						</div>
 					</div>
 				</div>
 			</div>
 
-			<?php
-			if ( is_plugin_active( 'wc-category-slider-pro/wc-category-slider-pro.php' ) ) {
-				// === category image change js scripts ===
-				?>
+			<?php if ( is_plugin_active( 'wc-category-slider-pro/wc-category-slider-pro.php' ) ) : ?>
 				<#
-
-				jQuery(document).on('click', '.edit-image', function (e) {			e.preventDefault();			e.stopPropagation();			e.stopImmediatePropagation();
-
-
+				jQuery(document).on('click', '.edit-image', function (e) {
+				e.preventDefault();
+				e.stopPropagation();
+				e.stopImmediatePropagation();
 				var $parent = jQuery(this).parentsUntil('.ever-slide-thumbnail');
-
-				var $img_prev = $parent.siblings('.img-prev');			var $img_id = $parent.siblings('.img-id');
-
-				var image = wp.media({			title: 'Upload Image'			})			.open().on('select', function () {			var uploaded_image = image.state().get('selection').first();			var image_url = uploaded_image.toJSON().url;			var image_id = uploaded_image.toJSON().id;			$img_prev.prop('src', image_url);			$img_id.val(image_id);			});
-
+				var $img_prev = $parent.siblings('.img-prev');var $img_id = $parent.siblings('.img-id');
+				var image = wp.media({title:'Upload Image'}).open().on('select', function () {
+				var uploaded_image = image.state().get('selection').first();
+				var image_url = uploaded_image.toJSON().url;
+				var image_id = uploaded_image.toJSON().id;
+				$img_prev.prop('src', image_url);
+				$img_id.val(image_id);});
 				});
-
-				jQuery(document).on('click', '.delete-image', function(e){			e.preventDefault();			e.stopPropagation();			e.stopImmediatePropagation();
-
+				jQuery(document).on('click', '.delete-image', function(e){
+				e.preventDefault();
+				e.stopPropagation();
+				e.stopImmediatePropagation();
 				var $parent = jQuery(this).parentsUntil('.ever-slide-thumbnail');
-
-				var $img_prev = $parent.siblings('.img-prev');			var $img_id = $parent.siblings('.img-id');			$img_prev.prop('src', '<?php echo WC_CAT_SLIDER_ASSETS_URL . '/images/no-image-placeholder.jpg'; ?>');			$img_id.val('');
-
+				var $img_prev = $parent.siblings('.img-prev');
+				var $img_id = $parent.siblings('.img-id');
+				$img_prev.prop('src', '<?php echo esc_url( WC_CAT_SLIDER_ASSETS_URL . 'images/no-image-placeholder.jpg' ); ?>');
+				$img_id.val('');
 				});
-
 				#>
-
-			<?php } ?>
-
+			<?php endif; ?>
 		</script>
 		<?php
 	}
@@ -185,7 +162,7 @@ class Admin {
 	public function wc_slider_get_categories_ajax_callback() {
 		check_ajax_referer( 'wc_category_slider_ajax', 'nonce' );
 		$selection_type      = empty( $_REQUEST['selection_type'] ) ? 'all' : sanitize_key( $_REQUEST['selection_type'] );
-		$selected_categories = empty( $_REQUEST['selected_categories'] ) ? array() : wp_parse_id_list( $_REQUEST['selected_categories'] );
+		$selected_categories = empty( $_REQUEST['selected_categories'] ) ? array() : wp_parse_id_list( wp_unslash( $_REQUEST['selected_categories'] ) );
 		$include_child       = empty( $_REQUEST['include_child'] ) || 'on' !== $_REQUEST['include_child'] ? false : true;
 		$number              = empty( $_REQUEST['number'] ) ? 10 : intval( $_REQUEST['number'] );
 		$orderby             = empty( $_REQUEST['orderby'] ) ? 'name' : sanitize_key( $_REQUEST['orderby'] );
@@ -238,8 +215,6 @@ class Admin {
 	 * @return void
 	 */
 	public function wc_slider_load_admin_assets( $hook ) {
-		/** wc_category_slider()->scripts->register_style( 'wc-category-slider-halloween', 'css/halloween.css' ); */
-		wc_category_slider()->scripts->register_style( 'wc-cat-slider-black-friday', 'css/black-friday.css' );
 		// Enqueue the bytekit styles.
 		wp_enqueue_style( 'bytekit-components' );
 		wp_enqueue_style( 'bytekit-layout' );
@@ -312,7 +287,6 @@ class Admin {
 	 * @return bool|null
 	 */
 	public function wc_category_slider_update_settings( $post_id ) {
-
 		if ( ! current_user_can( 'edit_post', $post_id ) ) {
 			return false;
 		}
@@ -395,8 +369,9 @@ class Admin {
 	 * @return void
 	 */
 	public function wc_slider_render_category_settings_metabox( $post ) {
+		wp_verify_nonce( '_nonce' );
 
-		echo SliderElements::select(
+		echo SliderElements::select( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			array(
 				'label'            => esc_html__( 'Selection Type', 'woo-category-slider-by-pluginever' ),
 				'name'             => 'selection_type',
@@ -409,12 +384,12 @@ class Admin {
 					'custom' => 'Custom',
 				),
 				'required'         => true,
-				'selected'         => wc_category_slider_get_meta( $post->ID, 'selection_type' ),
+				'selected'         => esc_attr( wc_category_slider_get_meta( $post->ID, 'selection_type' ) ),
 				'desc'             => esc_html__( 'Select all categories or any custom categories', 'woo-category-slider-by-pluginever' ),
 			)
 		);
 
-		echo SliderElements::select(
+		echo SliderElements::select( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			array(
 				'label'            => esc_html__( 'Select Categories', 'woo-category-slider-by-pluginever' ),
 				'name'             => 'selected_categories',
@@ -423,48 +398,48 @@ class Admin {
 				'show_option_none' => '',
 				'double_columns'   => false,
 				'multiple'         => true,
-				'options'          => wc_slider_get_category_list(),
+				'options'          => wc_slider_get_category_list(), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 				'required'         => false,
-				'selected'         => wc_category_slider_get_meta( $post->ID, 'selected_categories' ),
-				'desc'             => esc_html__( '', 'woo-category-slider-by-pluginever' ),
+				'selected'         => wc_category_slider_get_meta( $post->ID, 'selected_categories' ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				'desc'             => esc_html__( 'Select categories to show in the slider.', 'woo-category-slider-by-pluginever' ),
 				'attrs'            => array(
 					'multiple' => 'multiple',
 				),
 			)
 		);
 
-		echo SliderElements::input(
+		echo SliderElements::input( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			array(
 				'name'           => 'limit_number',
 				'label'          => esc_html__( 'Limit Items', 'woo-category-slider-by-pluginever' ),
 				'double_columns' => false,
 				'type'           => 'number',
-				'value'          => wc_category_slider_get_meta( $post->ID, 'limit_number', 10 ),
+				'value'          => absint( wc_category_slider_get_meta( $post->ID, 'limit_number', 10 ) ),
 				'desc'           => esc_html__( 'Limit the number of category appear on the slider', 'woo-category-slider-by-pluginever' ),
 			)
 		);
 
-		echo SliderElements::switcher(
+		echo SliderElements::switcher( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			array(
 				'label'          => esc_html__( 'Include Children', 'woo-category-slider-by-pluginever' ),
 				'name'           => 'include_child',
 				'double_columns' => false,
-				'value'          => wc_category_slider_get_meta( $post->ID, 'include_child', 'on' ),
+				'value'          => esc_attr( wc_category_slider_get_meta( $post->ID, 'include_child', 'on' ) ),
 				'desc'           => esc_html__( 'Will include subcategories of the selected categories', 'woo-category-slider-by-pluginever' ),
 			)
 		);
 
-		echo SliderElements::switcher(
+		echo SliderElements::switcher( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			array(
 				'name'           => 'hide_empty',
 				'double_columns' => false,
-				'value'          => wc_category_slider_get_meta( $post->ID, 'hide_empty', 'on' ),
+				'value'          => esc_attr( wc_category_slider_get_meta( $post->ID, 'hide_empty', 'on' ) ),
 				'label'          => esc_html__( 'Empty Categories', 'woo-category-slider-by-pluginever' ),
 				'desc'           => esc_html__( 'Show/hide Category without products', 'woo-category-slider-by-pluginever' ),
 			)
 		);
 
-		echo SliderElements::select(
+		echo SliderElements::select( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			apply_filters(
 				'wc_category_slider_orderby_args',
 				array(
@@ -492,7 +467,7 @@ class Admin {
 			)
 		);
 
-		echo SliderElements::select(
+		echo SliderElements::select( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			apply_filters(
 				'wc_category_slider_order_args',
 				array(
@@ -515,18 +490,16 @@ class Admin {
 			)
 		);
 
-		$action = empty( $_GET['action'] ) ? '' : wp_unslash( esc_attr( $_GET['action'] ) );
-
+		$action = empty( $_GET['action'] ) ? '' : sanitize_text_field( wp_unslash( $_GET['action'] ) );
 		?>
 		<div id="submitpost" class="submitbox ever-submitbox">
 			<input type="hidden" name="hidden_post_status" id="hidden_post_status" value="publish"/>
 			<div id="publishing-action">
 				<span class="spinner"></span>
 				<?php if ( 'edit' !== $action ) { ?>
-					<input name="original_publish" type="hidden" id="original_publish"
-							value="<?php esc_attr_e( 'Publish', 'woo-category-slider-by-pluginever' ); ?>"/>
+					<input name="original_publish" type="hidden" id="original_publish" value="<?php esc_attr_e( 'Publish', 'woo-category-slider-by-pluginever' ); ?>"/>
 					<?php submit_button( __( 'Create Slider', 'woo-category-slider-by-pluginever' ), 'primary button-large wccs-save-button', 'publish', false ); ?>
-										<?php
+					<?php
 				} else {
 					?>
 					<input name="original_publish" type="hidden" id="original_publish" value="Update"/>
@@ -548,14 +521,14 @@ class Admin {
 	 * @return void
 	 */
 	public function wc_slider_render_shortcode_metabox( $post ) {
-		echo SliderElements::input(
+		echo SliderElements::input( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			array(
 				'name'           => 'shortcode',
 				'label'          => '',
 				'double_columns' => false,
 				'readonly'       => true,
-				'value'          => wc_category_slider_get_meta( $post->ID, 'shortcode', "[woo_category_slider id='$post->ID']" ),
-				'desc'           => esc_html__( 'Use the shortocode to render the slider anywhere in the page or post.', 'woo-category-slider-by-pluginever' ),
+				'value'          => wc_category_slider_get_meta( $post->ID, 'shortcode', "[woo_category_slider id='$post->ID']" ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				'desc'           => esc_html__( 'Use the shortcode to render the slider anywhere in the page or post.', 'woo-category-slider-by-pluginever' ),
 			)
 		);
 	}
@@ -566,13 +539,10 @@ class Admin {
 	 * @param \WP_Post $post Post Object.
 	 *
 	 * @since 1.0.0
-	 * @return mixed
+	 * @return void
 	 */
-	public function wc_slider_settings_metabox( $post ) {
-		ob_start();
-		include WC_CAT_SLIDER_INCLUDES . '/Admin/views/metabox.php';
-		$html = ob_get_clean();
-		echo $html;
+	public function wc_slider_settings_metabox( $post ) { // phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.Found
+		include __DIR__ . '/views/metabox.php';
 	}
 
 	/**

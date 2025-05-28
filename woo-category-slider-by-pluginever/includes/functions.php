@@ -752,7 +752,7 @@ function wc_slider_get_icon_list() {
  * @since 4.0.0
  * @return array
  */
-function wc_slider_get_font_list() {
+function wccs_get_font_list() {
 	$fonts     = file_get_contents( WC_CAT_SLIDER_INCLUDES . '/Admin/views/json-google-fonts.php' ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
 	$fonts     = wp_list_pluck( json_decode( $fonts )->items, 'family' );
 	$font_list = array( __( 'None', 'woo-category-slider-by-pluginever' ) );
@@ -763,7 +763,6 @@ function wc_slider_get_font_list() {
 
 	return $font_list;
 }
-
 
 /**
  * get slider settings.
@@ -810,11 +809,12 @@ function wc_category_slider_get_image_sizes() {
  * @since 1.0.0
  * @return boolean|string
  */
-function wc_get_metabox_promo_text() {
+function wccs_get_metabox_promo_text() {
 	$promo_text = sprintf( ' %s <a href="https://www.pluginever.com/plugins/woocommerce-category-slider-pro/" class="button button-primary">%s</a>', __( 'Access <strong>PRO</strong> features by upgrading to PRO ', 'woo-category-slider-by-pluginever' ), __( 'Get The PRO Version.', 'woo-category-slider-by-pluginever' ) );
 	if ( ! is_plugin_active( 'wc-category-slider-pro/wc-category-slider-pro.php' ) ) {
 		return sprintf( '<h2 class="pro-feat-title"> %s <span>%s</span> </h2>', __( 'Pro Features', 'woo-category-slider-by-pluginever' ), $promo_text );
 	}
+
 	return false;
 }
 
@@ -862,28 +862,31 @@ function wc_category_slider_rest_api_get_all_sliders() {
 function wc_category_slider_rest_api_get_slider_preview( $data ) {
 	$capability = 'edit_others_posts';
 	if ( ! current_user_can( $capability ) ) {
-		return wp_send_json_error(
+		wp_send_json_error(
 			array(
 				'message' => __( 'You do not have access to this resource.', 'woo-category-slider-by-pluginever' ),
 			),
 			401
 		);
+
+		exit();
 	}
 
 	$slider_id = isset( $data['id'] ) ? $data['id'] : false;
 
-	if ( $slider_id === false ) {
-		return wp_send_json_error(
+	if ( false === $slider_id ) {
+		wp_send_json_error(
 			array(
 				'message' => __( 'Given slider ID is not valid.', 'woo-category-slider-by-pluginever' ),
 			),
 			404
 		);
+
+		exit();
 	}
 
-	// $slide_view = wc_category_slider_get_slider_preview_html( $slider_id );
-
-	return wp_send_json_success( do_shortcode( '[woo_category_slider id="' . $slider_id . '"]' ) );
+	wp_send_json_success( do_shortcode( '[woo_category_slider id="' . $slider_id . '"]' ) );
+	exit();
 }
 
 /**

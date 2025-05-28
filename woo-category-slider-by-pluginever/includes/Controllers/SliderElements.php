@@ -31,7 +31,7 @@ class SliderElements {
 				'show_option_none' => false,
 			)
 		);
-		$current    = gmdate( 'Y' );
+		$current    = absint( gmdate( 'Y' ) );
 		$start_year = $current - absint( $args['years_before'] );
 		$end_year   = $current + absint( $args['years_after'] );
 		$selected   = empty( $args['selected'] ) ? gmdate( 'Y' ) : $args['selected'];
@@ -167,7 +167,7 @@ class SliderElements {
 
 		if ( $args['show_option_all'] ) {
 			if ( $args['multiple'] && ! empty( $args['selected'] ) ) {
-				$selected = selected( true, in_array( 0, $args['selected'] ), false );
+				$selected = selected( true, in_array( 0, $args['selected'], true ), false );
 			} else {
 				$selected = selected( $args['selected'], 0, false );
 			}
@@ -177,7 +177,7 @@ class SliderElements {
 		if ( ! empty( $args['options'] ) ) {
 			if ( $args['show_option_none'] ) {
 				if ( $args['multiple'] ) {
-					$selected = selected( true, in_array( - 1, $args['selected'] ), false );
+					$selected = selected( true, in_array( - 1, $args['selected'], true ), false );
 				} elseif ( isset( $args['selected'] ) && ! is_array( $args['selected'] ) && ! empty( $args['selected'] ) ) {
 					$selected = selected( $args['selected'], - 1, false );
 				}
@@ -186,7 +186,7 @@ class SliderElements {
 
 			foreach ( $args['options'] as $key => $option ) {
 				if ( $args['multiple'] && is_array( $args['selected'] ) ) {
-					$selected = selected( true, in_array( (string) $key, $args['selected'] ), false );
+					$selected = selected( true, in_array( (string) $key, $args['selected'], true ), false );
 				} elseif ( isset( $args['selected'] ) && ! is_array( $args['selected'] ) ) {
 					$selected = selected( $args['selected'], $key, false );
 				}
@@ -621,7 +621,7 @@ class SliderElements {
 		$value = is_array( $args['value'] ) ? $args['value'] : array( $args['value'] );
 
 		foreach ( $args['options'] as $key => $label ) {
-			$checked = in_array( $key, $value ) ? ' checked="checked" ' : '';
+			$checked = in_array( $key, $value, true ) ? ' checked="checked" ' : '';
 			$output .= '<div class="ever-checkbox' . $inline . '">';
 			$output .= '<label class="ever-label">';
 			$output .= '<input type="checkbox" name="' . esc_attr( $key ) . '" id="' . esc_attr( $key ) . '" class="' . $class . ' ' . esc_attr( $key ) . '" ' . $checked . ' ' . $attributes . ' />';

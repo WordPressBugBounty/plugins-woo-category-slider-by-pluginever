@@ -1,12 +1,20 @@
 <?php
-
-global $post;
+/**
+ * Slider Settings Metabox
+ *
+ * @package WooCategorySlider
+ * @since 1.0.0
+ * @var \WP_Post $post The current post object.
+ */
 
 use WooCommerceCategorySlider\Controllers\SliderElements;
 
-echo wc_get_metabox_promo_text();
+defined( 'ABSPATH' ) || exit;
 
-echo SliderElements::select(
+$fonts = wccs_get_font_list();
+echo wp_kses_post( wccs_get_metabox_promo_text() );
+
+echo SliderElements::select( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	apply_filters(
 		'wc_category_slider_title_font_args',
 		array(
@@ -16,7 +24,7 @@ echo SliderElements::select(
 			'show_option_all'  => '',
 			'show_option_none' => '',
 			'double_columns'   => false,
-			'options'          => wc_slider_get_font_list(),
+			'options'          => $fonts, // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			'required'         => false,
 			'disabled'         => false,
 			'option_disabled'  => true,
@@ -26,7 +34,7 @@ echo SliderElements::select(
 	)
 );
 
-echo SliderElements::select(
+echo SliderElements::select( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	apply_filters(
 		'wc_category_slider_description_font_args',
 		array(
@@ -36,7 +44,7 @@ echo SliderElements::select(
 			'show_option_all'  => '',
 			'show_option_none' => '',
 			'double_columns'   => false,
-			'options'          => wc_slider_get_font_list(),
+			'options'          => $fonts, // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			'required'         => false,
 			'disabled'         => false,
 			'option_disabled'  => true,
@@ -46,7 +54,7 @@ echo SliderElements::select(
 	)
 );
 
-echo SliderElements::select(
+echo SliderElements::select( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	apply_filters(
 		'wc_category_slider_button_font_args',
 		array(
@@ -56,7 +64,7 @@ echo SliderElements::select(
 			'show_option_all'  => '',
 			'show_option_none' => '',
 			'double_columns'   => false,
-			'options'          => wc_slider_get_font_list(),
+			'options'          => $fonts, // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			'required'         => false,
 			'disabled'         => false,
 			'option_disabled'  => true,

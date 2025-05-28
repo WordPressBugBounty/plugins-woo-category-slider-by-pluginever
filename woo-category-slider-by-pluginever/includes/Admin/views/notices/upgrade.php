@@ -21,9 +21,9 @@ defined( 'ABSPATH' ) || exit;
 			echo wp_kses_post(
 				sprintf(
 					// translators: %1$s: WC Category Slider Pro link, %2$s: Coupon code.
-					__( 'Get access to %1$s with a <strong>20%% discount</strong> for the next <strong>72 hours</strong> only! Use coupon code %2$s at checkout. Hurry up, the offer ends soon.', 'woo-category-slider-by-pluginever' ),
+					__( 'Enjoy <strong>10%% discount</strong> on %1$s! Use coupon code %2$s at checkout to grab the exclusive deal. Don’t miss out — this offer won’t last forever!', 'woo-category-slider-by-pluginever' ),
 					'<a href="https://pluginever.com/plugins/woocommerce-category-slider-pro/?utm_source=plugin&utm_medium=notice&utm_campaign=flash-sale" target="_blank"><strong>WC Category Slider Pro</strong></a>',
-					'<strong>FLASH20</strong>'
+					'<strong>FLASH10</strong>'
 				)
 			);
 			?>

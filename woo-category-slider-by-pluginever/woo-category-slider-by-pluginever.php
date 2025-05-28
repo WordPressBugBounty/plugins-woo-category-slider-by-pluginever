@@ -3,7 +3,7 @@
  * Plugin Name:          Product Category Slider for WooCommerce
  * Plugin URI:           https://pluginever.com/plugins/woocommerce-category-slider-pro/
  * Description:          Showcase product categories in the most appealing way. Create an instant impression & trigger purchase intention.
- * Version:              4.3.5
+ * Version:              4.3.6
  * Author:               PluginEver
  * Author URI:           https://pluginever.com
  * License:              GPL v2 or later
@@ -41,7 +41,7 @@ defined( 'ABSPATH' ) || exit();
 
 // Require the autoloader.
 require_once __DIR__ . '/vendor/autoload.php';
-require_once __DIR__ . '/vendor-prefixed/autoload.php';
+require_once __DIR__ . '/libraries/autoload.php';
 
 // Instantiate the plugin.
 WooCommerceCategorySlider\Plugin::create(

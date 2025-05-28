@@ -1,43 +1,50 @@
 <?php
+/**
+ * Slider Settings Metabox
+ *
+ * @package WooCategorySlider
+ * @since 1.0.0
+ * @var \WP_Post $post The current post object.
+ */
 
 use WooCommerceCategorySlider\Controllers\SliderElements;
 
-echo SliderElements::switcher(
+echo SliderElements::switcher( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	array(
 		'name'           => 'autoplay',
 		'label'          => esc_html__( 'Slider Autoplay', 'woo-category-slider-by-pluginever' ),
 		'double_columns' => true,
-		'value'          => wc_category_slider_get_meta( esc_attr( $post->ID ), 'autoplay', 'yes' ),
+		'value'          => wc_category_slider_get_meta( esc_attr( $post->ID ), 'autoplay', 'yes' ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		'desc'           => esc_html__( 'Slider will automatically start playing is set Yes.', 'woo-category-slider-by-pluginever' ),
 	)
 );
 
-echo SliderElements::switcher(
+echo SliderElements::switcher( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	array(
 		'name'           => 'rtl',
 		'label'          => esc_html__( 'Slider RTL', 'woo-category-slider-by-pluginever' ),
 		'double_columns' => true,
-		'value'          => wc_category_slider_get_meta( esc_attr( $post->ID ), 'rtl', 'yes' ),
+		'value'          => wc_category_slider_get_meta( esc_attr( $post->ID ), 'rtl', 'yes' ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 		'desc'           => esc_html__( 'Slider direction from Right to left is set Yes.', 'woo-category-slider-by-pluginever' ),
 	)
 );
 
-echo wc_get_metabox_promo_text();
+echo wp_kses_post( wccs_get_metabox_promo_text() );
 
-echo SliderElements::switcher(
+echo SliderElements::switcher( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	apply_filters(
 		'wc_category_slider_lazy_load_args',
 		array(
 			'name'     => 'lazy_load',
 			'label'    => esc_html__( 'Lazy Load', 'woo-category-slider-by-pluginever' ),
-			'value'    => wc_category_slider_get_meta( esc_attr( $post->ID ), 'lazy_load', 'off' ),
+			'value'    => wc_category_slider_get_meta( esc_attr( $post->ID ), 'lazy_load', 'off' ), // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 			'disabled' => 'disabled',
 		),
 		esc_attr( $post->ID )
 	)
 );
 
-echo SliderElements::input(
+echo SliderElements::input( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	apply_filters(
 		'wc_category_slider_cols_args',
 		array(
@@ -52,7 +59,7 @@ echo SliderElements::input(
 	)
 );
 
-echo SliderElements::input(
+echo SliderElements::input( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	apply_filters(
 		'wc_category_slider_tab_cols_args',
 		array(
@@ -67,7 +74,7 @@ echo SliderElements::input(
 	)
 );
 
-echo SliderElements::input(
+echo SliderElements::input( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	apply_filters(
 		'wc_category_slider_phone_cols_args',
 		array(
@@ -82,7 +89,7 @@ echo SliderElements::input(
 	)
 );
 
-echo SliderElements::input(
+echo SliderElements::input( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	apply_filters(
 		'wc_category_slider_autoplay_speed_args',
 		array(
@@ -97,7 +104,7 @@ echo SliderElements::input(
 	)
 );
 
-echo SliderElements::input(
+echo SliderElements::input( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	apply_filters(
 		'wc_category_slider_slider_speed_args',
 		array(
@@ -112,7 +119,7 @@ echo SliderElements::input(
 	)
 );
 
-echo SliderElements::switcher(
+echo SliderElements::switcher( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	apply_filters(
 		'wc_category_slider_loop_args',
 		array(
@@ -125,7 +132,7 @@ echo SliderElements::switcher(
 	)
 );
 
-echo SliderElements::input(
+echo SliderElements::input( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
 	apply_filters(
 		'wc_category_slider_column_gap_args',
 		array(

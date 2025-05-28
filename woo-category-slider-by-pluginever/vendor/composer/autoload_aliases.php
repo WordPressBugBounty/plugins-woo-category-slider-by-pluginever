@@ -7,15 +7,11 @@ function autoloadAliases( $classname ): void {
     case 'ByteKit\\Services':
       class_alias(\WooCommerceCategorySlider\ByteKit\Services::class, \ByteKit\Services::class);
       break;
-    case 'ByteKit\\Scripts':
-      class_alias(\WooCommerceCategorySlider\ByteKit\Scripts::class, \ByteKit\Scripts::class);
-      break;
     case 'ByteKit\\Plugin':
       class_alias(\WooCommerceCategorySlider\ByteKit\Plugin::class, \ByteKit\Plugin::class);
       break;
-    case 'ByteKit\\Traits\\HasPlugin':
-      $includeFile = '<?php namespace ByteKit\Traits; trait HasPlugin { use \WooCommerceCategorySlider\ByteKit\Traits\HasPlugin };';
-      include "data://text/plain;base64," . base64_encode($includeFile);
+    case 'ByteKit\\Scripts':
+      class_alias(\WooCommerceCategorySlider\ByteKit\Scripts::class, \ByteKit\Scripts::class);
       break;
     case 'ByteKit\\Admin\\Flash':
       class_alias(\WooCommerceCategorySlider\ByteKit\Admin\Flash::class, \ByteKit\Admin\Flash::class);
@@ -23,12 +19,16 @@ function autoloadAliases( $classname ): void {
     case 'ByteKit\\Admin\\Notices':
       class_alias(\WooCommerceCategorySlider\ByteKit\Admin\Notices::class, \ByteKit\Admin\Notices::class);
       break;
-    case 'ByteKit\\Interfaces\\Pluginable':
-      $includeFile = '<?php namespace ByteKit\Interfaces; interface Pluginable extends \WooCommerceCategorySlider\ByteKit\Interfaces\Pluginable {};';
+    case 'ByteKit\\Traits\\HasPlugin':
+      $includeFile = '<?php namespace ByteKit\Traits; trait HasPlugin { use \WooCommerceCategorySlider\ByteKit\Traits\HasPlugin };';
       include "data://text/plain;base64," . base64_encode($includeFile);
       break;
     case 'ByteKit\\Interfaces\\Scriptable':
       $includeFile = '<?php namespace ByteKit\Interfaces; interface Scriptable extends \WooCommerceCategorySlider\ByteKit\Interfaces\Scriptable {};';
+      include "data://text/plain;base64," . base64_encode($includeFile);
+      break;
+    case 'ByteKit\\Interfaces\\Pluginable':
+      $includeFile = '<?php namespace ByteKit\Interfaces; interface Pluginable extends \WooCommerceCategorySlider\ByteKit\Interfaces\Pluginable {};';
       include "data://text/plain;base64," . base64_encode($includeFile);
       break;
     default:

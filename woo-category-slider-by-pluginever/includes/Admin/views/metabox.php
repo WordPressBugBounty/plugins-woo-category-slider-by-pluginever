@@ -1,8 +1,15 @@
 <?php
+/**
+ * WC Category Slider Metabox Template
+ *
+ * This file is used to display the metabox for the WC Category Slider plugin.
+ *
+ * @sicne 1.0.0
+ * @package WooCommerceCategorySlider
+ * @var \WP_Post $post The current post object.
+ */
 
-if ( ! defined( 'ABSPATH' ) ) {
-	exit;
-}
+defined( 'ABSPATH' ) || exit;
 
 $navs = array(
 	'Categories',
@@ -10,22 +17,15 @@ $navs = array(
 	'Slider Settings',
 	'Font Settings',
 );
-
 ?>
 
 <div class="ever-row">
 	<div class="ever-col-12">
 		<div class="ever-tabs">
-
 			<?php
-
-			$content = '';
-			$active  = 'active';
-
+			$active = 'active';
 			foreach ( $navs as $nav ) {
-
 				$icon = ''; // Tab menu icons.
-
 				switch ( $nav ) {
 					case 'Categories':
 						$icon = 'align-justify';
@@ -42,22 +42,8 @@ $navs = array(
 				}
 
 				// === tab nav label ===
-				$label = sprintf(
-					/* translators: 1: Nav Menu Item */
-					__( '%1$s', 'woo-category-slider-by-pluginever' ),
-					$nav
-				);
-
+				$label    = $nav;
 				$template = sanitize_title( $nav );
-
-				ob_start();
-
-				echo wp_kses_post( "<div class='tab-content-item {$active}' id='{$template}'>" );
-				// === include meta box template file ===
-				include WC_CAT_SLIDER_INCLUDES . "/Admin/views/metabox-{$template}.php";
-				echo '</div>';
-
-				$content .= ob_get_clean();
 
 				// === tab nav item ===
 				printf(
@@ -69,25 +55,43 @@ $navs = array(
 				);
 
 				$active = '';
-
 			}
-
 			?>
 		</div>
-
 		<div class="tab-content">
 			<?php
-			// === Meta box tab content ===
-			echo $content;
+			$active = 'active';
+			foreach ( $navs as $nav ) {
+				$template = sanitize_title( $nav );
+				// === tab content item ===
+				printf(
+					'<div class="tab-content-item %1$s" id="%2$s">',
+					esc_attr( $active ),
+					esc_attr( $template )
+				);
 
+				switch ( $nav ) {
+					case 'Categories':
+						include __DIR__ . '/metabox-categories.php';
+						break;
+					case 'Display Settings':
+						include __DIR__ . '/metabox-display-settings.php';
+						break;
+					case 'Slider Settings':
+						include __DIR__ . '/metabox-slider-settings.php';
+						break;
+					case 'Font Settings':
+						include __DIR__ . '/metabox-font-settings.php';
+						break;
+				}
+				echo '</div>';
+				$active = '';
+			}
 			?>
 		</div>
-
 	</div>
 </div>
-
 <script>
-
 	jQuery(document).ready(function ($) {
 		//===  handle active tab ===
 		function CategorySliderSetActiveTab($target) {
@@ -105,7 +109,6 @@ $navs = array(
 		}
 
 		CategorySliderSetActiveTab(activeTab);
-
 		$('.tab-item').on('click', function (e) {
 			e.preventDefault();
 			var $target = $(this).data('target');
@@ -114,7 +117,6 @@ $navs = array(
 
 		//=== Custom css editor ===
 		wp.codeEditor.initialize($('#custom_css'), WCS.codeEditor);
-
 	});
 </script>
 

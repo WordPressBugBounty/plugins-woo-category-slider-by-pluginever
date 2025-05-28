@@ -4,7 +4,7 @@ Tags: WooCommerce Product Category Slider, woocommerce, slider, category slider,
 Requires at least: 5.2
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 4.3.5
+Stable tag: 4.3.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -140,6 +140,12 @@ Set "show content" to No from the slider settings in display settings section
 16. Product Category Slider image hover effects
 
 == Changelog ==
+= 4.3.6 (27th May 2025) =
+* Fix - Fixed some known issues.
+* Enhance - Update the plugin framework.
+* Security - Fixed security and phpcs issues.
+* Compatibility - Checked compatibility with the latest versions of WordPress and WooCommerce.
+
 = 4.3.5 (28th April 2025) =
 * Security - Fixed a security issue to prevent vulnerability.
 * Enhance - Improved the plugin's performance and loading speed.
