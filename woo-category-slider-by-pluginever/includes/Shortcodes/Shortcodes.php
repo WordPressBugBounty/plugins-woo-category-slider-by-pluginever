@@ -138,23 +138,24 @@ class Shortcodes {
 				$title = sprintf( '<a href="%s" class="wc-slide-link"><h3 class="wc-slide-title">%s</h3></a>', $term['url'], $term['name'] );
 			}
 
-			$count_html = '';
+			$count_html  = '';
+			$child_terms = '';
 			if ( 'on' !== $hide_count ) {
 				$count_html = sprintf( '<span class="wc-slide-product-count"><span>%s</span> %s</span>', absint( $term['count'] ), esc_html( $custom_product_text ) );
+
+				// ==== Child Term Items ===
+				if ( 'on' === $include_child ) {
+					$taxonomy     = 'product_cat';
+					$children     = array_filter( get_term_children( $term['term_id'], $taxonomy ) );
+					$child_terms .= '<ul class="wc-slide-child-items">';
+					foreach ( $children as $child ) {
+						$child_term   = get_term_by( 'id', $child, $taxonomy );
+						$child_terms .= sprintf( ' <li class="wc-slide-child-item"><a href="%s" class="wc-slide-link">%s (%s)</a></li> ', get_term_link( $child, $taxonomy ), $child_term->name, $child_term->count );
+					}
+					$child_terms .= '</ul>';
+				}
 			}
 
-			// ==== Child Term Items ===
-			$child_terms = '';
-			if ( 'on' === $include_child ) {
-				$taxonomy     = 'product_cat';
-				$children     = array_filter( get_term_children( $term['term_id'], $taxonomy ) );
-				$child_terms .= '<ul class="wc-slide-child-items">';
-				foreach ( $children as $child ) {
-					$child_term   = get_term_by( 'id', $child, $taxonomy );
-					$child_terms .= sprintf( ' <li class="wc-slide-child-item"><a href="%s" class="wc-slide-link">%s (%s)</a></li> ', get_term_link( $child, $taxonomy ), $child_term->name, $child_term->count );
-				}
-				$child_terms .= '</ul>';
-			}
 			$description = '';
 			if ( 'on' === $show_desc && ! empty( $term['description'] ) ) {
 				$trim_desc   = $word_limit > 1 ? wp_trim_words( $term['description'], $word_limit, '' ) : $term['description'];

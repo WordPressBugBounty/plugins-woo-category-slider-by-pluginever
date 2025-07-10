@@ -4,7 +4,7 @@ Tags: WooCommerce Product Category Slider, woocommerce, slider, category slider,
 Requires at least: 5.2
 Tested up to: 6.8
 Requires PHP: 7.4
-Stable tag: 4.3.6
+Stable tag: 4.3.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,6 +15,8 @@ Showcase Your WooCommerce store's categories/subcategories in a more appealing w
 [youtube https://www.youtube.com/watch?v=hyQJvV8ZKQg]
 
 Product Category Slider for WooCommerce by PluginEver provides you the opportunity of showing WooCommerce product categories in a slider. You can show your product categories in a modern looking and descriptive slider that show details of your category. Product Category Slider for WooCommerce plugin has lots of features that allows you to control the slider and its content.
+
+This plugin is very easy to use and has a built-in shortcode builder. You can easily add the Product Category Slider for WooCommerce to your site without any coding knowledge. It is also compatible with Gutenberg block editor.
 
 === 💻 Find Out More: ===
 
@@ -65,7 +67,6 @@ Showing WooCommerce product categories in a slider help your visitors to find th
 * Light Weight
 * Fast Loading
 
-
 == Pro Features of Product Category Slider for WooCommerce ==
 * 27+ Eye-Catching ready-made theme
 * Custom Image size
@@ -86,9 +87,7 @@ Showing WooCommerce product categories in a slider help your visitors to find th
 * RTL Support
 * And Many More
 
-
 >[Get Product Category Slider for WooCommerce PRO ](https://pluginever.com/plugins/woocommerce-category-slider-pro/)
-
 
 == Installation ==
 1. Upload the plugin files to the `/wp-content/plugins/woo-category-slider-by-pluginever` directory, or install the plugin through the WordPress plugins screen directly.
@@ -121,6 +120,21 @@ Free version does not support changing color but on the Pro version you can chan
 = How to hide the category details? =
 Set "show content" to No from the slider settings in display settings section
 
+= How to configure the slider? =
+You can configure the slider from the admin panel. Go to Product Category Slider menu and then click on the "Slider Settings" tab. There you will find all the options to configure the slider.
+
+= How to add the product category slider to my site? =
+You can add the product category slider to your site using the shortcode builder. Go to Product Category Slider menu and then click on the "Shortcode" tab. There you will find the shortcode builder. You can also use the Gutenberg block to add the product category slider to your site.
+
+= How to use the shortcode?
+You can use the shortcode [woo_category_slider id='product_id'] to display the product category slider on any page or post. Replace 'product_id' with the ID of the product you want to display.
+
+= How to use the Gutenberg block? =
+You can use the Gutenberg block to add the product category slider to your site. Just search for "Product Category Slider" in the block editor and add it to your post or page. You can then configure the settings from the block settings panel.
+
+= How to change the slider settings? =
+You can change the slider settings from the admin panel. Go to Product Category Slider menu and then click on the "Settings" tab. There you will find all the options to configure the slider.
+
 == Screenshots ==
 1. Product Category Slider Demo Slide
 2. Product Category Slider preview in the admin panel
@@ -140,6 +154,10 @@ Set "show content" to No from the slider settings in display settings section
 16. Product Category Slider image hover effects
 
 == Changelog ==
+= 4.3.7 (10th July 2025) =
+* Fix - Subcategory count visibility issue fixed.
+* Compatibility - Checked compatibility with the latest WordPress and WooCommerce versions.
+
 = 4.3.6 (27th May 2025) =
 * Fix - Fixed some known issues.
 * Enhance - Update the plugin framework.
