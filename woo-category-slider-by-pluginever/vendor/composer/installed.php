@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'pluginever/wc-category-slider',
-        'pretty_version' => 'v4.3.7',
-        'version' => '4.3.7.0',
-        'reference' => 'e94ae7e5ba05dc30dc8a6b64c47fe879ad8efd61',
+        'pretty_version' => 'v4.3.8',
+        'version' => '4.3.8.0',
+        'reference' => 'b8c49cc48a5645a55eea9fa4eff74971f17fe95f',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -20,9 +20,9 @@
             'dev_requirement' => false,
         ),
         'pluginever/wc-category-slider' => array(
-            'pretty_version' => 'v4.3.7',
-            'version' => '4.3.7.0',
-            'reference' => 'e94ae7e5ba05dc30dc8a6b64c47fe879ad8efd61',
+            'pretty_version' => 'v4.3.8',
+            'version' => '4.3.8.0',
+            'reference' => 'b8c49cc48a5645a55eea9fa4eff74971f17fe95f',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

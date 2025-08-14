@@ -1,14 +1,12 @@
 === Product Category Slider for WooCommerce ===
 Contributors: manikmist09, pluginever
 Tags: WooCommerce Product Category Slider, woocommerce, slider, category slider, product slider
-Requires at least: 5.2
 Tested up to: 6.8
-Requires PHP: 7.4
-Stable tag: 4.3.7
+Stable tag: 4.3.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Showcase Your WooCommerce store's categories/subcategories in a more appealing way.
+Showcase Your WooCommerce store's categories/subcategories in a beautiful slider.
 
 == Description ==
 
@@ -16,7 +14,8 @@ Showcase Your WooCommerce store's categories/subcategories in a more appealing w
 
 Product Category Slider for WooCommerce by PluginEver provides you the opportunity of showing WooCommerce product categories in a slider. You can show your product categories in a modern looking and descriptive slider that show details of your category. Product Category Slider for WooCommerce plugin has lots of features that allows you to control the slider and its content.
 
-This plugin is very easy to use and has a built-in shortcode builder. You can easily add the Product Category Slider for WooCommerce to your site without any coding knowledge. It is also compatible with Gutenberg block editor.
+This plugin is very easy to use and has a built-in shortcode [woo_category_slider id='your_product_id']. You can easily add the Product Category Slider for WooCommerce to your site without any coding knowledge. It is also compatible with Gutenberg block editor.
+You can use the Product Category Slider for WooCommerce to show all of your WooCommerce product categories or any specifically selected ones. It also supports subcategories of products. You can select any product category or subcategory you want.
 
 === 💻 Find Out More: ===
 
@@ -24,7 +23,6 @@ This plugin is very easy to use and has a built-in shortcode builder. You can ea
 * **[Plugin Documentation](https://pluginever.com/docs/wc-category-slider/ "Plugin Documentation")**
 * **[Need Help? Contact Our 24/7 Support](https://pluginever.com/support/ "Need Help? Contact Our 24/7 Support")**
 * **[Product Category Slider for WooCommerce PRO](https://pluginever.com/plugins/woocommerce-category-slider-pro/ "Product Category Slider for WooCommerce PRO")**
-
 
 == Why Would You Need Product Category Slider for WooCommerce ==
 When you can display your products and their categories in a proper way to your customers, it attracts them the most. This means you are effectively showing your product categories in a professional looking slider. Thus, your users loves how they look and also understands what you are offering at a glance. This makes your WooCommerce store popular and you can sell more quickly.
@@ -89,6 +87,12 @@ Showing WooCommerce product categories in a slider help your visitors to find th
 
 >[Get Product Category Slider for WooCommerce PRO ](https://pluginever.com/plugins/woocommerce-category-slider-pro/)
 
+== Gutenberg Block ==
+Product Category Slider for WooCommerce is compatible with the Gutenberg block editor. You can easily add the Product Category Slider to your posts and pages using the Gutenberg block. Just search for "WooCommerce Category Slider" in the block editor and add it to your post or page. You can then configure the settings from the block settings panel.
+
+== Shortcode ==
+You can use the shortcode [woo_category_slider id='product_id'] to display the Product Category Slider on any page or post. Replace 'product_id' with the ID of the product you want to display. You can also use the shortcode builder to generate the shortcode with your desired settings.
+
 == Installation ==
 1. Upload the plugin files to the `/wp-content/plugins/woo-category-slider-by-pluginever` directory, or install the plugin through the WordPress plugins screen directly.
 2. Activate the plugin through the 'Plugins' screen in WordPress.
@@ -96,25 +100,35 @@ Showing WooCommerce product categories in a slider help your visitors to find th
 4. Enjoy!
 
 == Frequently asked questions ==
-= How many styles it has =
-Free version has 2 nice preset styles and Pro version has 10+ preset styles.
+= How many category slider styles are available? =
+The Product Category Slider for WooCommerce plugin comes with 2 styles in the free version and 10+ styles in the Pro version. You can choose from these styles to customize the appearance of your category slider. The free version has 2 nice preset styles, while the Pro version offers more than 10 preset styles to choose from. You can also create your own custom style in the Pro version.
 
-= I have categories but its showing no category found =
-Woo Category has lots of features to control how it will appear.
-It has 2 options to control categories to appear or not
-* Hide empty categories
-* Hide Categories Without Image
-Those 2 options are turned on by default. So, if those options are on and either your categories do not have
-products assigned or category do not have any image then it will appear as no category found.
-So, tweak the settings as you need.
+= I have categories but its showing no category found? =
+If you have created categories but the Product Category Slider for WooCommerce is showing "No category found", it might be due to the following reasons:
+1. **Hide Empty Categories**: If the "Hide empty categories" option is enabled, the slider will not display categories that do not have any products assigned to them. You can disable this option in the slider settings to show all categories, even if they are empty.
+2. **Hide Categories Without Image**: If the "Hide Categories Without Image" option is enabled, the slider will not display categories that do not have an image assigned to them. You can disable this option in the slider settings to show all categories, even if they do not have images.
+3. **Category Visibility**: Ensure that the categories you have created are set to be visible. Sometimes, categories can be set to private or hidden, which would prevent them from appearing in the slider.
+4. **Category Selection**: Make sure you have selected the categories you want to display in the slider. If no categories are selected, the slider will not show any categories.
 
-= Slider is not playing =
-Change "Slider Autoplay" option to Yes.
+= How to change the slider speed? =
+This is a premium feature of the Product Category Slider for WooCommerce Pro version. In the Pro version, you can easily change the slider speed from the admin panel.
+To do this, go to the Product Category Slider menu and then click on the "Slider Settings" tab. In the "Slider Settings" section, you will find the "Slider Speed" option. You can change the speed of the slider by adjusting the value in milliseconds. For example, if you want the slider to change every 3 seconds, you can set the speed to 3000 milliseconds.
 
-= How to change number of categories/Column on the slider =
+= How to change the slider autoplay speed? =
+This is a premium feature of the Product Category Slider for WooCommerce Pro version. In the Pro version, you can easily change the slider autoplay speed from the admin panel.
+To do this, go to the Product Category Slider menu and then click on the "Slider Settings" tab. In the "Slider Settings" section, you will find the "Slider Autoplay Speed" option. You can change the autoplay speed of the slider by adjusting the value in milliseconds. For example, if you want the slider to autoplay every 5 seconds, you can set the autoplay speed to 5000 milliseconds.
+
+= Slider is not playing automatically? =
+If the slider is not playing automatically, it might be because the autoplay option is disabled.
+To enable autoplay, you need to change the slider settings.
+Go to Product Category Slider menu and then click on the "Slider Settings" tab.
+In the "Slider Settings" section, you will find the "Slider Autoplay" option.
+Change it to Yes to enable autoplay.
+
+= How to change number of categories/Column on the slider? =
 Change "Number of Column" value as per your requirement.
 
-= How can I change color/background color of elements =
+= How can I change color/background color of elements? =
 Free version does not support changing color but on the Pro version you can change to any color easily with the color picker.
 
 = How to hide the category details? =
@@ -154,6 +168,11 @@ You can change the slider settings from the admin panel. Go to Product Category 
 16. Product Category Slider image hover effects
 
 == Changelog ==
+= 4.3.8 (14th August 2025) =
+* Fix - Fixed some known issues.
+* Enhance - Optimized code for better performance. And removed unused codes.
+* Compatibility - Checked compatibility with the latest WordPress and WooCommerce versions.
+
 = 4.3.7 (10th July 2025) =
 * Fix - Subcategory count visibility issue fixed.
 * Compatibility - Checked compatibility with the latest WordPress and WooCommerce versions.

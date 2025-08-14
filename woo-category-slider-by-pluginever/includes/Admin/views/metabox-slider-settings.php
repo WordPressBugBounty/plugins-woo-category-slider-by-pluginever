@@ -29,6 +29,24 @@ echo SliderElements::switcher( // phpcs:ignore WordPress.Security.EscapeOutput.O
 	)
 );
 
+echo SliderElements::switcher( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	array(
+		'name'  => 'hide_nav',
+		'label' => esc_html__( 'Hide Navigation', 'woo-category-slider-by-pluginever' ),
+		'value' => esc_attr( wc_category_slider_get_meta( $post->ID, 'hide_nav', 'off' ) ),
+		'desc'  => esc_html__( 'Show/Hide slider navigation', 'woo-category-slider-by-pluginever' ),
+	)
+);
+
+echo SliderElements::switcher( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	array(
+		'name'  => 'hide_paginate',
+		'label' => esc_html__( 'Hide Pagination', 'woo-category-slider-by-pluginever' ),
+		'value' => esc_attr( wc_category_slider_get_meta( $post->ID, 'hide_paginate', 'off' ) ),
+		'desc'  => esc_html__( 'Show/Hide dotted pagination', 'woo-category-slider-by-pluginever' ),
+	)
+);
+
 echo wp_kses_post( wccs_get_metabox_promo_text() );
 
 echo SliderElements::switcher( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
