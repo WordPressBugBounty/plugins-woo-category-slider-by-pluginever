@@ -228,6 +228,7 @@ class Admin {
 	 */
 	public static function get_categories() {
 		check_ajax_referer( 'wc_category_slider_ajax', 'nonce' );
+
 		$selection_type      = empty( $_REQUEST['selection_type'] ) ? 'all' : sanitize_key( $_REQUEST['selection_type'] );
 		$selected_categories = empty( $_REQUEST['selected_categories'] ) ? array() : wp_parse_id_list( wp_unslash( $_REQUEST['selected_categories'] ) );
 		$include_child       = empty( $_REQUEST['include_child'] ) || 'on' !== $_REQUEST['include_child'] ? false : true;
@@ -241,21 +242,23 @@ class Admin {
 			$selected_categories = array();
 		}
 
-		$categories = wc_category_slider_get_categories(
-			array(
-				'number'     => $number,
-				'orderby'    => $orderby,
-				'order'      => $order,
-				'hide_empty' => $hide_empty,
-				'include'    => $selected_categories,
-				'exclude'    => array(),
-				'child_of'   => 0,
-				'post_id'    => $slider_id,
-			),
-			$slider_id,
-			$orderby,
+		$args = array(
+			'number'     => $number,
+			'orderby'    => $orderby,
+			'order'      => $order,
+			'hide_empty' => $hide_empty,
+			'include'    => $selected_categories,
+			'exclude'    => array(),
+			'child_of'   => 0,
+			'parent'     => 0,
+			'post_id'    => $slider_id,
 		);
 
+		if ( $include_child && isset( $args['parent'] ) ) {
+			unset( $args['parent'] );
+		}
+
+		$categories = wc_category_slider_get_categories( $args, $slider_id, $orderby, );
 		$categories = apply_filters( 'wc_category_slider_categories', $categories, $slider_id );
 
 		foreach ( $categories as $key => $category ) {
@@ -270,6 +273,7 @@ class Admin {
 
 			$categories[ $key ]['image'] = $image;
 		}
+
 		wp_send_json_success( $categories );
 	}
 
@@ -424,7 +428,7 @@ class Admin {
 				'name'           => 'include_child',
 				'double_columns' => false,
 				'value'          => esc_attr( wc_category_slider_get_meta( $post->ID, 'include_child', 'on' ) ),
-				'desc'           => esc_html__( 'Will include subcategories of the selected categories', 'woo-category-slider-by-pluginever' ),
+				'desc'           => esc_html__( 'Enable to include subcategories of the selected categories', 'woo-category-slider-by-pluginever' ),
 			)
 		);
 
@@ -434,7 +438,7 @@ class Admin {
 				'double_columns' => false,
 				'value'          => esc_attr( wc_category_slider_get_meta( $post->ID, 'hide_empty', 'on' ) ),
 				'label'          => esc_html__( 'Empty Categories', 'woo-category-slider-by-pluginever' ),
-				'desc'           => esc_html__( 'Show/hide Category without products', 'woo-category-slider-by-pluginever' ),
+				'desc'           => esc_html__( 'Enable to show categories without products', 'woo-category-slider-by-pluginever' ),
 			)
 		);
 

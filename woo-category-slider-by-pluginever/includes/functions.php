@@ -1,7 +1,5 @@
 <?php
 
-use WooCommerceCategorySlider\Plugin;
-
 defined( 'ABSPATH' ) || exit;
 
 /**
@@ -11,7 +9,7 @@ defined( 'ABSPATH' ) || exit;
  * @return WooCommerceCategorySlider\Plugin
  */
 function wc_category_slider() {
-	return Plugin::instance();
+	return \WooCommerceCategorySlider\Plugin::instance();
 }
 
 
